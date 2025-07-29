@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="min-h-screen">
     <router-view />
+    <NotificationToast />
   </div>
 </template>
 
