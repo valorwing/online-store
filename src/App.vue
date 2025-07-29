@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useAuthStore } from '@/stores/auth'
+import NotificationToast from '@/components/NotificationToast.vue'
 
 const authStore = useAuthStore()
 
