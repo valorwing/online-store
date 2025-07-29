@@ -1,5 +1,3 @@
-import { jwtDecode } from 'jwt-decode'
-
 // Типы данных для API
 export interface User {
   id: number
@@ -77,7 +75,7 @@ export interface PaymentMethod {
   isActive: boolean
 }
 
-// Mock базы данных с демо-данными
+// Mock базы данных с демо-да��ными
 class MockDatabase {
   private users: User[] = [
     {
@@ -420,7 +418,7 @@ class MockDatabase {
 // Singleton экземпляр базы данных
 const mockDB = new MockDatabase()
 
-// Утилита для и��итации задержки сети
+// Утилита для имитации задержки сети
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 // Утилита для генерации JWT токена (mock)
@@ -590,7 +588,7 @@ export class MockAPI {
     
     const currentUser = await this.getCurrentUser()
     if (!currentUser || currentUser.role !== 'admin') {
-      throw new Error('Досту�� запрещен')
+      throw new Error('Доступ запрещен')
     }
 
     return mockDB.createProduct(productData)
