@@ -34,19 +34,7 @@
               to="/cart"
               class="relative p-3 text-gray-600 hover:text-primary-500 transition-all duration-300 hover:bg-primary-50 rounded-xl group"
             >
-              <svg
-                class="h-6 w-6 group-hover:animate-bounce-gentle"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 0L3 3M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"
-                />
-              </svg>
+              <span class="text-2xl group-hover:animate-bounce-gentle">🛒</span>
               <span
                 v-if="cartStore.totalItems > 0"
                 class="absolute -top-1 -right-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center font-bold shadow-glow animate-pulse"
@@ -375,7 +363,7 @@
           <div class="relative z-10">
             <h2 class="text-4xl font-bold mb-4">Готовы начать покупки? 🎉</h2>
             <p class="text-xl mb-8 text-white/90">
-              Присоединяйтесь к тысяч��м довольных покупателей
+              Присоединяйтесь к тысячам довольных покупателей
             </p>
             <div class="flex flex-wrap justify-center gap-4">
               <router-link
@@ -531,7 +519,7 @@ const handleSearch = () => {
 const handleLogout = async () => {
   await authStore.logout()
   showUserMenu.value = false
-  notificationStore.info('👋 До свидания!', 'Вы успешно вышли из системы')
+  notificationStore.info('👋 До свид��ния!', 'Вы успешно вышли из системы')
   router.push('/')
 }
 
