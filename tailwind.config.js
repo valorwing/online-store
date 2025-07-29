@@ -30,14 +30,26 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+        sans: [
+          'Inter',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+        ],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'bounce-gentle': 'bounceGentle 2s infinite',
         'pulse-gentle': 'pulseGentle 3s ease-in-out infinite',
-        'float': 'float 3s ease-in-out infinite',
+        float: 'float 3s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -62,15 +74,15 @@ export default {
         },
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(59, 130, 246, 0.3)',
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        glow: '0 0 20px rgba(59, 130, 246, 0.3)',
+        card: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       },
     },
   },
   plugins: [
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('@tailwindcss/forms'), 
+    require('@tailwindcss/forms'),
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('@tailwindcss/typography'),
   ],
