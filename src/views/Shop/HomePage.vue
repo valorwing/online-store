@@ -22,19 +22,7 @@
                 class="w-full pl-12 pr-4 py-3 border-0 rounded-2xl bg-white/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:bg-white/80 transition-all duration-300 shadow-card hover:shadow-card-hover"
               />
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg
-                  class="h-5 w-5 text-primary-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
+                <span class="text-lg text-primary-400">🔍</span>
               </div>
             </div>
           </div>
@@ -387,7 +375,7 @@
           <div class="relative z-10">
             <h2 class="text-4xl font-bold mb-4">Готовы начать покупки? 🎉</h2>
             <p class="text-xl mb-8 text-white/90">
-              Присоединяйтесь к тысячам довольных покупателей
+              Присоединяйтесь к тысяч��м довольных покупателей
             </p>
             <div class="flex flex-wrap justify-center gap-4">
               <router-link
