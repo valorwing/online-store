@@ -337,9 +337,14 @@ const loadFeaturedProducts = async () => {
 const addToCart = async (productId: number) => {
   try {
     await cartStore.addToCart(productId)
-    // Можно добавить уведомление об успешном добавлении
+    const product = featuredProducts.value.find(p => p.id === productId)
+    notificationStore.success(
+      'Товар добавлен в корзину',
+      product ? `${product.name} успешно добавлен в корзину` : undefined
+    )
   } catch (error) {
     console.error('Ошибка добавления в корзину:', error)
+    notificationStore.error('Ошибка', 'Не удалось добавить товар в корзину')
   }
 }
 
