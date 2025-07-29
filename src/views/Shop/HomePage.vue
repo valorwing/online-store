@@ -296,6 +296,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useCartStore } from '@/stores/cart'
+import { useNotificationStore } from '@/stores/notification'
 import MockAPI, { type Category, type Product } from '@/services/api'
 
 const router = useRouter()
@@ -335,7 +336,7 @@ const loadFeaturedProducts = async () => {
 const addToCart = async (productId: number) => {
   try {
     await cartStore.addToCart(productId)
-    // Можно добавить уведомление об успешном добавлении
+    // Можно добав��ть уведомление об успешном добавлении
   } catch (error) {
     console.error('Ошибка добавления в корзину:', error)
   }
