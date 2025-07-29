@@ -50,20 +50,12 @@
                 class="flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-primary-500 to-purple-500 text-white hover:from-primary-600 hover:to-purple-600 transition-all duration-300 shadow-card hover:shadow-glow"
               >
                 <span class="font-medium">{{ authStore.user?.name }}</span>
-                <svg
-                  class="h-4 w-4 transition-transform duration-200"
+                <span
+                  class="transition-transform duration-200 text-sm"
                   :class="{ 'rotate-180': showUserMenu }"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                  ▼
+                </span>
               </button>
 
               <!-- Выпадающее меню -->
@@ -164,7 +156,7 @@
         </div>
       </section>
 
-      <!-- Особенности магазина -->
+      <!-- Особен��ости магазина -->
       <section class="mb-16 animate-fade-in">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
@@ -519,7 +511,7 @@ const handleSearch = () => {
 const handleLogout = async () => {
   await authStore.logout()
   showUserMenu.value = false
-  notificationStore.info('👋 До свид��ния!', 'Вы успешно вышли из системы')
+  notificationStore.info('👋 До свидания!', 'Вы успешно вышли из системы')
   router.push('/')
 }
 
