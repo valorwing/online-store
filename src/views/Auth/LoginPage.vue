@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
+    <div class="max-w-md w-full space-y-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 animate-fade-in">
       <div>
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
           {{ isLoginMode ? 'Вход в аккаунт' : 'Регистрация' }}
@@ -114,7 +114,7 @@
             :disabled="authStore.isLoading"
             class="py-2 px-4 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 transition-colors"
           >
-            Войти как пользователь
+            Войти как пользо��атель
           </button>
         </div>
       </form>
