@@ -44,7 +44,7 @@
               autocomplete="name"
               required
               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-              placeholder="Введите ваше имя"
+              placeholder="Введ��те ваше имя"
             />
           </div>
 
@@ -86,7 +86,7 @@
           <button
             type="submit"
             :disabled="authStore.isLoading"
-            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-card hover:shadow-glow"
           >
             <span v-if="authStore.isLoading" class="absolute left-0 inset-y-0 flex items-center pl-3">
               <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
