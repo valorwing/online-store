@@ -118,7 +118,7 @@ export const useAuthStore = defineStore('auth', () => {
     isLoading,
     error,
 
-    // Вы��исляемые свойства
+    // Вычисляемые свойства
     isAuthenticated,
     isAdmin,
 

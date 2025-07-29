@@ -3,9 +3,7 @@
     <div class="container">
       <div class="nav-content">
         <!-- Логотип -->
-        <router-link to="/" class="logo">
-          OnlineStore
-        </router-link>
+        <router-link to="/" class="logo"> OnlineStore </router-link>
 
         <!-- Поиск (только на главной странице) -->
         <div v-if="showSearch" class="search-box">
@@ -22,12 +20,20 @@
         <!-- Навигация справа -->
         <div class="nav-actions">
           <!-- Переключатель языка -->
-          <button @click="settingsStore.toggleLanguage()" class="nav-btn language-btn" :title="t('settings.language')">
+          <button
+            @click="settingsStore.toggleLanguage()"
+            class="nav-btn language-btn"
+            :title="t('settings.language')"
+          >
             {{ settingsStore.language === 'uk' ? 'УК' : 'РУ' }}
           </button>
 
           <!-- Переключатель темы -->
-          <button @click="settingsStore.toggleTheme()" class="nav-btn theme-btn" :title="t('settings.theme')">
+          <button
+            @click="settingsStore.toggleTheme()"
+            class="nav-btn theme-btn"
+            :title="t('settings.theme')"
+          >
             {{ settingsStore.theme === 'light' ? '🌙' : '☀️' }}
           </button>
 
@@ -42,17 +48,18 @@
           <!-- Навигация для залогиненных пользователей -->
           <template v-if="authStore.isAuthenticated">
             <!-- Профиль -->
-            <router-link to="/profile" class="nav-btn" :title="t('nav.profile')">
-              👤
-            </router-link>
+            <router-link to="/profile" class="nav-btn" :title="t('nav.profile')"> 👤 </router-link>
 
             <!-- Заказы -->
-            <router-link to="/orders" class="nav-btn" :title="t('nav.orders')">
-              📦
-            </router-link>
+            <router-link to="/orders" class="nav-btn" :title="t('nav.orders')"> 📦 </router-link>
 
             <!-- Админ панель -->
-            <router-link v-if="authStore.isAdmin" to="/admin" class="nav-btn" :title="t('nav.admin')">
+            <router-link
+              v-if="authStore.isAdmin"
+              to="/admin"
+              class="nav-btn"
+              :title="t('nav.admin')"
+            >
               ⚙️
             </router-link>
 
@@ -243,13 +250,13 @@ const handleLogout = async () => {
 }
 
 .logout-btn {
-  background: var(--color-error);
+  background: white;
   border-color: var(--color-error);
   color: white;
 }
 
 .logout-btn:hover {
-  background: #b91c1c;
+  background: white;
   border-color: #b91c1c;
   color: white;
   transform: translateY(-1px);

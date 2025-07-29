@@ -4,10 +4,8 @@
     <nav class="navbar">
       <div class="container">
         <div class="nav-content">
-          <router-link to="/" class="logo">
-            OnlineStore
-          </router-link>
-          
+          <router-link to="/" class="logo"> OnlineStore </router-link>
+
           <div class="nav-actions">
             <router-link to="/cart" class="cart-link">
               🛒
@@ -19,7 +17,7 @@
             <router-link v-if="!authStore.isAuthenticated" to="/login" class="btn btn-primary">
               Войти
             </router-link>
-            
+
             <span v-else class="user-name">
               {{ authStore.user?.name }}
             </span>
@@ -70,11 +68,7 @@
                   />
                   <span>Все категории</span>
                 </label>
-                <label
-                  v-for="category in categories"
-                  :key="category.id"
-                  class="radio-item"
-                >
+                <label v-for="category in categories" :key="category.id" class="radio-item">
                   <input
                     v-model="filters.categoryId"
                     :value="category.id"
@@ -90,11 +84,7 @@
             <!-- Сортировка -->
             <div class="filter-group">
               <label class="form-label">Сортировка</label>
-              <select
-                v-model="filters.sortBy"
-                @change="applyFilters"
-                class="form-input"
-              >
+              <select v-model="filters.sortBy" @change="applyFilters" class="form-input">
                 <option value="default">По умолчанию</option>
                 <option value="price-asc">Цена: по возрастанию</option>
                 <option value="price-desc">Цена: по убыванию</option>
@@ -104,9 +94,7 @@
             </div>
 
             <!-- Кнопка очистки фильтров -->
-            <button @click="clearFilters" class="btn btn-secondary">
-              Очистить фильтры
-            </button>
+            <button @click="clearFilters" class="btn btn-secondary">Очистить фильтры</button>
           </div>
         </aside>
 
@@ -118,9 +106,7 @@
               <h1 class="page-title">
                 {{ selectedCategory ? selectedCategory.name : 'Все товары' }}
               </h1>
-              <p class="products-count">
-                {{ filteredProducts.length }} товар(ов) найдено
-              </p>
+              <p class="products-count">{{ filteredProducts.length }} товар(ов) найдено</p>
             </div>
 
             <!-- Переключатель вида -->
@@ -141,30 +127,18 @@
           </div>
 
           <!-- Загрузка -->
-          <div v-if="isLoading" class="loading">
-            Загрузка товаров...
-          </div>
+          <div v-if="isLoading" class="loading">Загрузка товаров...</div>
 
           <!-- Список товаров (сетка) -->
           <div v-else-if="viewMode === 'grid'" class="products-grid">
-            <div
-              v-for="product in filteredProducts"
-              :key="product.id"
-              class="product-card"
-            >
+            <div v-for="product in filteredProducts" :key="product.id" class="product-card">
               <div class="product-image-container">
-                <img
-                  :src="product.images[0]"
-                  :alt="product.name"
-                  class="product-image"
-                />
+                <img :src="product.images[0]" :alt="product.name" class="product-image" />
               </div>
               <div class="product-info">
                 <h3 class="product-name">{{ product.name }}</h3>
-                <p class="product-description">
-                  {{ product.description.slice(0, 100) }}...
-                </p>
-                
+                <p class="product-description">{{ product.description.slice(0, 100) }}...</p>
+
                 <div class="product-rating">
                   ⭐ {{ product.rating }} ({{ product.reviewsCount }})
                 </div>
@@ -172,14 +146,11 @@
                 <div class="product-footer">
                   <div class="product-price">
                     <span class="price-current">{{ formatPrice(product.price) }}</span>
-                    <span
-                      v-if="product.originalPrice"
-                      class="price-original"
-                    >
+                    <span v-if="product.originalPrice" class="price-original">
                       {{ formatPrice(product.originalPrice) }}
                     </span>
                   </div>
-                  
+
                   <button
                     @click="addToCart(product.id)"
                     :disabled="cartStore.isLoading"
@@ -194,21 +165,13 @@
 
           <!-- Список товаров (список) -->
           <div v-else-if="viewMode === 'list'" class="products-list">
-            <div
-              v-for="product in filteredProducts"
-              :key="product.id"
-              class="product-list-item"
-            >
-              <img
-                :src="product.images[0]"
-                :alt="product.name"
-                class="product-list-image"
-              />
+            <div v-for="product in filteredProducts" :key="product.id" class="product-list-item">
+              <img :src="product.images[0]" :alt="product.name" class="product-list-image" />
               <div class="product-list-content">
                 <div class="product-list-info">
                   <h3 class="product-name">{{ product.name }}</h3>
                   <p class="product-description">{{ product.description }}</p>
-                  
+
                   <div class="product-rating">
                     ⭐ {{ product.rating }} ({{ product.reviewsCount }} отзывов)
                   </div>
@@ -227,14 +190,11 @@
                 <div class="product-list-actions">
                   <div class="product-price">
                     <div class="price-current">{{ formatPrice(product.price) }}</div>
-                    <div
-                      v-if="product.originalPrice"
-                      class="price-original"
-                    >
+                    <div v-if="product.originalPrice" class="price-original">
                       {{ formatPrice(product.originalPrice) }}
                     </div>
                   </div>
-                  
+
                   <button
                     @click="addToCart(product.id)"
                     :disabled="cartStore.isLoading"
@@ -248,10 +208,7 @@
           </div>
 
           <!-- Пустое состояние -->
-          <div
-            v-else-if="!isLoading && filteredProducts.length === 0"
-            class="empty-state"
-          >
+          <div v-else-if="!isLoading && filteredProducts.length === 0" class="empty-state">
             <div class="empty-icon">📦</div>
             <h3 class="empty-title">Товары не найдены</h3>
             <p class="empty-description">Попробуйте изменить фильтры поиска.</p>
@@ -283,21 +240,22 @@ const viewMode = ref<'grid' | 'list'>('grid')
 const filters = reactive({
   categoryId: null as number | null,
   search: '',
-  sortBy: 'default'
+  sortBy: 'default',
 })
 
 const filteredProducts = computed(() => {
   let result = [...products.value]
 
   if (filters.categoryId) {
-    result = result.filter(product => product.categoryId === filters.categoryId)
+    result = result.filter((product) => product.categoryId === filters.categoryId)
   }
 
   if (filters.search) {
     const searchLower = filters.search.toLowerCase()
-    result = result.filter(product => 
-      product.name.toLowerCase().includes(searchLower) ||
-      product.description.toLowerCase().includes(searchLower)
+    result = result.filter(
+      (product) =>
+        product.name.toLowerCase().includes(searchLower) ||
+        product.description.toLowerCase().includes(searchLower),
     )
   }
 
@@ -332,7 +290,7 @@ const loadProducts = async () => {
     isLoading.value = true
     products.value = await MockAPI.getProducts()
   } catch (error) {
-    console.error('О��ибка загрузки товаров:', error)
+    console.error('Ошибка загрузки товаров:', error)
   } finally {
     isLoading.value = false
   }
@@ -348,18 +306,18 @@ const addToCart = async (productId: number) => {
 
 const applyFilters = () => {
   const query: any = {}
-  
+
   if (filters.categoryId) {
-    const category = categories.value.find(c => c.id === filters.categoryId)
+    const category = categories.value.find((c) => c.id === filters.categoryId)
     if (category) {
       query.category = category.slug
     }
   }
-  
+
   if (filters.search) {
     query.search = filters.search
   }
-  
+
   if (filters.sortBy !== 'default') {
     query.sort = filters.sortBy
   }
@@ -387,7 +345,7 @@ const initializeFromQuery = async () => {
   const query = route.query
 
   if (query.category) {
-    const category = categories.value.find(c => c.slug === query.category)
+    const category = categories.value.find((c) => c.slug === query.category)
     if (category) {
       filters.categoryId = category.id
       selectedCategory.value = category
@@ -403,9 +361,13 @@ const initializeFromQuery = async () => {
   }
 }
 
-watch(() => route.query, () => {
-  initializeFromQuery()
-}, { deep: true })
+watch(
+  () => route.query,
+  () => {
+    initializeFromQuery()
+  },
+  { deep: true },
+)
 
 onMounted(async () => {
   await loadCategories()
@@ -544,7 +506,7 @@ onMounted(async () => {
   color: #374151;
 }
 
-.radio-item input[type="radio"] {
+.radio-item input[type='radio'] {
   accent-color: #2563eb;
 }
 
@@ -770,36 +732,36 @@ onMounted(async () => {
   .shop-content {
     flex-direction: column;
   }
-  
+
   .filters-sidebar {
     width: 100%;
   }
-  
+
   .products-header {
     flex-direction: column;
     gap: 16px;
     text-align: center;
   }
-  
+
   .products-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .product-list-item {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .product-list-image {
     width: 100%;
     height: 200px;
   }
-  
+
   .product-list-content {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .product-list-actions {
     align-items: center;
   }

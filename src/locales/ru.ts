@@ -1,7 +1,7 @@
 export default {
   // Общие
   currency: 'UAH',
-  
+
   // Навигация
   nav: {
     home: 'Главная',
@@ -23,17 +23,17 @@ export default {
     features: {
       delivery: {
         title: 'Быстрая доставка',
-        desc: 'Доставка по всей Украине от 1 дня'
+        desc: 'Доставка по всей Украине от 1 дня',
       },
       quality: {
         title: 'Высокое качество',
-        desc: 'Только проверенные товары от надежных брендов'
+        desc: 'Только проверенные товары от надежных брендов',
       },
       support: {
         title: 'Поддержка 24/7',
-        desc: 'Всегда готовы помочь и ответить на вопросы'
-      }
-    }
+        desc: 'Всегда готовы помочь и ответить на вопросы',
+      },
+    },
   },
 
   // Профиль
@@ -56,12 +56,12 @@ export default {
     profileUpdated: 'Профиль успешно обновлен!',
     passwordChanged: 'Пароль успешно изменен!',
     totalOrders: 'Общее количество заказов',
-    totalSpent: 'Общ��я сумма покупок',
+    totalSpent: 'Общая сумма покупок',
     registrationDate: 'Дата регистрации',
     continueShoppingTitle: 'Продолжить покупки',
     continueShoppingDesc: 'Перейти в каталог товаров',
     cartTitle: 'Корзина',
-    unknown: 'Неизвестно'
+    unknown: 'Неизвестно',
   },
 
   // Корзина
@@ -77,7 +77,7 @@ export default {
     checkout: 'Оформить заказ',
     subtotal: 'Подытог',
     total: 'Итого',
-    recommended: 'Рекомендуемые товары'
+    recommended: 'Рекомендуемые товары',
   },
 
   // Оформление заказа
@@ -88,7 +88,7 @@ export default {
     shippingAddress: 'Адрес доставки',
     paymentMethod: 'Способ оплаты',
     yourOrder: 'Ваш заказ',
-    processing: 'Об��аботка...',
+    processing: 'Обработка...',
     payBtn: 'Оплатить',
     orderSuccess: 'Заказ успешно оформлен!',
     orderAccepted: 'принят в обработку',
@@ -107,7 +107,7 @@ export default {
     delivery: 'Доставка',
     free: 'Бесплатно',
     taxes: 'Налоги',
-    included: 'Включены'
+    included: 'Включены',
   },
 
   // Заказы
@@ -133,8 +133,8 @@ export default {
       shipped: 'Отправлен',
       delivered: 'Доставлен',
       cancelled: 'Отменен',
-      payment_failed: 'Оплата не прошла'
-    }
+      payment_failed: 'Оплата не прошла',
+    },
   },
 
   // Авторизация
@@ -155,7 +155,7 @@ export default {
     confirmPasswordField: 'Подтвердите пароль',
     loginBtn: 'Войти',
     registerBtn: 'Зарегистрироваться',
-    processing: 'Обработка...'
+    processing: 'Обработка...',
   },
 
   // Админка
@@ -175,7 +175,7 @@ export default {
     price: 'Цена',
     stock: 'Количество на складе',
     category: 'Категория',
-    active: 'Активен'
+    active: 'Активен',
   },
 
   // Настройки
@@ -185,7 +185,7 @@ export default {
     lightTheme: 'Светлая',
     darkTheme: 'Темная',
     ukrainian: 'Українська',
-    russian: 'Русский'
+    russian: 'Русский',
   },
 
   // Общие кнопки и действия
@@ -204,7 +204,7 @@ export default {
     sort: 'Сортировка',
     loading: 'Загрузка...',
     error: 'Ошибка',
-    success: 'Успех'
+    success: 'Успех',
   },
 
   // Ошибки
@@ -214,6 +214,6 @@ export default {
     passwordTooShort: 'Пароль должен содержать минимум 6 символов',
     passwordsMismatch: 'Пароли не совпадают',
     loginFailed: 'Неверный email или пароль',
-    networkError: 'Ошибка сети. Попробуйте позже.'
-  }
+    networkError: 'Ошибка сети. Попробуйте позже.',
+  },
 }

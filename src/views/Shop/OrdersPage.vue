@@ -16,9 +16,7 @@
 
             <span class="user-name">{{ authStore.user?.name }}</span>
 
-            <button @click="handleLogout" class="logout-btn">
-              Вийт��
-            </button>
+            <button @click="handleLogout" class="logout-btn">Вийти</button>
           </div>
         </div>
       </div>
@@ -54,18 +52,12 @@
         <div class="empty-icon">📋</div>
         <h3 class="empty-title">У вас поки немає замовлень</h3>
         <p class="empty-description">Почніть покупки в нашому магазині!</p>
-        <router-link to="/shop" class="btn btn-primary">
-          Перейти в магазин
-        </router-link>
+        <router-link to="/shop" class="btn btn-primary"> Перейти в магазин </router-link>
       </div>
 
       <!-- Список заказов -->
       <div v-else class="orders-list">
-        <div
-          v-for="order in orders"
-          :key="order.id"
-          class="order-card"
-        >
+        <div v-for="order in orders" :key="order.id" class="order-card">
           <!-- Заголовок заказа -->
           <div class="order-header">
             <div class="order-info">
@@ -83,16 +75,9 @@
 
           <!-- Товары в заказе -->
           <div class="order-items">
-            <div
-              v-for="item in order.items"
-              :key="item.productId"
-              class="order-item"
-            >
+            <div v-for="item in order.items" :key="item.productId" class="order-item">
               <div class="item-image">
-                <img
-                  :src="getProductImage(item.productId)"
-                  :alt="getProductName(item.productId)"
-                />
+                <img :src="getProductImage(item.productId)" :alt="getProductName(item.productId)" />
               </div>
 
               <div class="item-details">
@@ -133,17 +118,11 @@
                   Відмінити замовлення
                 </button>
 
-                <button
-                  @click="reorderItems(order)"
-                  class="action-btn reorder"
-                >
+                <button @click="reorderItems(order)" class="action-btn reorder">
                   Замовити знову
                 </button>
 
-                <button
-                  v-if="order.status === 'delivered'"
-                  class="action-btn review"
-                >
+                <button v-if="order.status === 'delivered'" class="action-btn review">
                   Залишити відгук
                 </button>
               </div>
@@ -477,8 +456,12 @@ onMounted(async () => {
 }
 
 @keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Пустое состояние */
@@ -560,12 +543,30 @@ onMounted(async () => {
   margin-bottom: 8px;
 }
 
-.status-pending { background: #fef3c7; color: #92400e; }
-.status-paid { background: #dbeafe; color: #1e40af; }
-.status-shipped { background: #f3e8ff; color: #5b21b6; }
-.status-delivered { background: #dcfce7; color: #166534; }
-.status-cancelled { background: #fee2e2; color: #991b1b; }
-.status-failed { background: #fee2e2; color: #991b1b; }
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+.status-paid {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.status-shipped {
+  background: #f3e8ff;
+  color: #5b21b6;
+}
+.status-delivered {
+  background: #dcfce7;
+  color: #166534;
+}
+.status-cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.status-failed {
+  background: #fee2e2;
+  color: #991b1b;
+}
 
 .order-total {
   font-size: 18px;

@@ -19,7 +19,11 @@
               <router-link to="/shop" class="btn btn-primary btn-lg">
                 {{ t('home.catalogBtn') }}
               </router-link>
-              <router-link v-if="!authStore.isAuthenticated" to="/login" class="btn btn-secondary btn-lg">
+              <router-link
+                v-if="!authStore.isAuthenticated"
+                to="/login"
+                class="btn btn-secondary btn-lg"
+              >
                 {{ t('home.registerBtn') }}
               </router-link>
               <router-link v-else to="/orders" class="btn btn-secondary btn-lg">
@@ -30,7 +34,7 @@
         </div>
       </section>
 
-      <!-- Преимущ��ства -->
+      <!-- Преимущества -->
       <section class="features">
         <div class="container">
           <div class="grid grid-3">
@@ -53,14 +57,12 @@
         </div>
       </section>
 
-      <!-- Категор��и -->
+      <!-- Категории -->
       <section class="categories">
         <div class="container">
           <h2 class="section-title">Популярные категории</h2>
-          
-          <div v-if="isLoadingCategories" class="loading">
-            Загрузка категорий...
-          </div>
+
+          <div v-if="isLoadingCategories" class="loading">Загрузка категорий...</div>
 
           <div v-else class="grid grid-4">
             <div
@@ -84,14 +86,10 @@
         <div class="container">
           <div class="section-header">
             <h2 class="section-title">Популярные товары</h2>
-            <router-link to="/shop" class="link">
-              Смотреть все →
-            </router-link>
+            <router-link to="/shop" class="link"> Смотреть все → </router-link>
           </div>
 
-          <div v-if="isLoadingProducts" class="loading">
-            Загрузка това��ов...
-          </div>
+          <div v-if="isLoadingProducts" class="loading">Загрузка товаров...</div>
 
           <div v-else class="grid grid-4">
             <div v-for="product in featuredProducts" :key="product.id" class="product-card">
@@ -101,11 +99,11 @@
                   -{{ Math.round((1 - product.price / product.originalPrice) * 100) }}%
                 </div>
               </div>
-              
+
               <div class="product-info">
                 <h3 class="product-name">{{ product.name }}</h3>
                 <p class="product-description">{{ product.description.slice(0, 80) }}...</p>
-                
+
                 <div class="product-rating">
                   ⭐ {{ product.rating }} ({{ product.reviewsCount }})
                 </div>
@@ -117,7 +115,7 @@
                       {{ formatPrice(product.originalPrice) }}
                     </span>
                   </div>
-                  
+
                   <button
                     @click="addToCart(product.id)"
                     :disabled="cartStore.isLoading"
@@ -139,11 +137,9 @@
         <div class="footer-content">
           <div class="footer-section">
             <h3 class="footer-title">OnlineStore</h3>
-            <p class="footer-text">
-              Ваш надежный партнер в мире онлайн покупок
-            </p>
+            <p class="footer-text">Ваш надежный партнер в мире онлайн покупок</p>
           </div>
-          
+
           <div class="footer-section">
             <h4 class="footer-subtitle">Компания</h4>
             <ul class="footer-links">
@@ -152,17 +148,17 @@
               <li><a href="#">Вакансии</a></li>
             </ul>
           </div>
-          
+
           <div class="footer-section">
             <h4 class="footer-subtitle">Поддержка</h4>
             <ul class="footer-links">
-              <li><a href="#">Помощ��</a></li>
+              <li><a href="#">Помощь</a></li>
               <li><a href="#">Доставка</a></li>
               <li><a href="#">Возврат</a></li>
             </ul>
           </div>
         </div>
-        
+
         <div class="footer-bottom">
           <p>&copy; 2024 OnlineStore. Все права защищены.</p>
         </div>
@@ -222,14 +218,14 @@ const loadFeaturedProducts = async () => {
 const addToCart = async (productId: number) => {
   try {
     await cartStore.addToCart(productId)
-    const product = featuredProducts.value.find(p => p.id === productId)
+    const product = featuredProducts.value.find((p) => p.id === productId)
     notificationStore.success(
-      'Товар добав��ен в корзину',
-      product ? `${product.name} добавлен в корзину` : undefined
+      'Товар добавлен в корзину',
+      product ? `${product.name} добавлен в корзину` : undefined,
     )
   } catch (error) {
     console.error('Ошибка добавления в корзину:', error)
-    notificationStore.error('��шибка', 'Не удалось добавить товар в корзину')
+    notificationStore.error('Ошибка', 'Не удалось добавить товар в корзину')
   }
 }
 
@@ -254,18 +250,12 @@ const formatPrice = (price: number): string => {
   return new Intl.NumberFormat('uk-UA', {
     style: 'currency',
     currency: 'UAH',
-    minimumFractionDigits: 0
+    minimumFractionDigits: 0,
   }).format(price)
 }
 
-
-
 onMounted(async () => {
-  await Promise.all([
-    loadCategories(),
-    loadFeaturedProducts(),
-    cartStore.initializeCart()
-  ])
+  await Promise.all([loadCategories(), loadFeaturedProducts(), cartStore.initializeCart()])
 })
 </script>
 
@@ -690,28 +680,28 @@ onMounted(async () => {
     padding: 16px 0;
     gap: 16px;
   }
-  
+
   .search-box {
     order: 3;
     margin: 0;
     max-width: none;
   }
-  
+
   .hero-title {
     font-size: 32px;
   }
-  
+
   .hero-actions {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .section-header {
     flex-direction: column;
     gap: 16px;
     text-align: center;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 32px;

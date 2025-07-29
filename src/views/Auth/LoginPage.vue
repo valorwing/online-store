@@ -18,26 +18,20 @@
         <div class="demo-accounts">
           <h3 class="demo-title">Демо аккаунты:</h3>
           <div class="demo-list">
-            <div class="demo-item">
-              <strong>Админ:</strong> admin@example.com / admin123
-            </div>
-            <div class="demo-item">
-              <strong>Пользователь:</strong> user@example.com / user123
-            </div>
+            <div class="demo-item"><strong>Админ:</strong> admin@example.com / admin123</div>
+            <div class="demo-item"><strong>Пользователь:</strong> user@example.com / user123</div>
           </div>
         </div>
 
         <form @submit.prevent="handleSubmit" class="login-form">
-          <!-- Ош��бки -->
+          <!-- Ошибки -->
           <div v-if="authStore.error" class="error-message">
             {{ authStore.error }}
           </div>
 
           <!-- Имя (только для регистрации) -->
           <div v-if="!isLoginMode" class="form-group">
-            <label for="name" class="form-label">
-              Полное имя
-            </label>
+            <label for="name" class="form-label"> Полное имя </label>
             <input
               id="name"
               v-model="form.name"
@@ -51,9 +45,7 @@
 
           <!-- Email -->
           <div class="form-group">
-            <label for="email" class="form-label">
-              Email ад��ес
-            </label>
+            <label for="email" class="form-label"> Email адрес </label>
             <input
               id="email"
               v-model="form.email"
@@ -67,9 +59,7 @@
 
           <!-- Пароль -->
           <div class="form-group">
-            <label for="password" class="form-label">
-              Пароль
-            </label>
+            <label for="password" class="form-label"> Пароль </label>
             <input
               id="password"
               v-model="form.password"
@@ -82,15 +72,16 @@
           </div>
 
           <!-- Кнопка отправки -->
-          <button
-            type="submit"
-            :disabled="authStore.isLoading"
-            class="submit-btn"
-          >
+          <button type="submit" :disabled="authStore.isLoading" class="submit-btn">
             <span v-if="authStore.isLoading" class="loading-spinner"></span>
-            {{ authStore.isLoading 
-                ? (isLoginMode ? 'Вход...' : 'Регистрация...') 
-                : (isLoginMode ? 'Войти' : 'Зарегистрироваться') 
+            {{
+              authStore.isLoading
+                ? isLoginMode
+                  ? 'Вход...'
+                  : 'Регистрация...'
+                : isLoginMode
+                  ? 'Войти'
+                  : 'Зарегистрироваться'
             }}
           </button>
 
@@ -133,13 +124,13 @@ const isLoginMode = ref(true)
 const form = reactive({
   name: '',
   email: '',
-  password: ''
+  password: '',
 })
 
 const toggleMode = () => {
   isLoginMode.value = !isLoginMode.value
   authStore.clearError()
-  
+
   form.name = ''
   form.email = ''
   form.password = ''
@@ -155,7 +146,7 @@ const handleSubmit = async () => {
       await authStore.register(form.email, form.password, form.name)
     }
 
-    const redirectTo = route.query.redirect as string || (authStore.isAdmin ? '/admin' : '/')
+    const redirectTo = (route.query.redirect as string) || (authStore.isAdmin ? '/admin' : '/')
     router.push(redirectTo)
   } catch (error) {
     console.error('Ошибка авторизации:', error)
@@ -165,18 +156,18 @@ const handleSubmit = async () => {
 const loginAsDemo = async (role: 'admin' | 'user') => {
   const credentials = {
     admin: { email: 'admin@example.com', password: 'admin123' },
-    user: { email: 'user@example.com', password: 'user123' }
+    user: { email: 'user@example.com', password: 'user123' },
   }
 
   form.email = credentials[role].email
   form.password = credentials[role].password
-  
+
   await handleSubmit()
 }
 
 onMounted(() => {
   if (authStore.isAuthenticated) {
-    const redirectTo = route.query.redirect as string || (authStore.isAdmin ? '/admin' : '/')
+    const redirectTo = (route.query.redirect as string) || (authStore.isAdmin ? '/admin' : '/')
     router.push(redirectTo)
   }
 })
@@ -361,11 +352,11 @@ onMounted(() => {
   .login-card {
     padding: 24px;
   }
-  
+
   .login-title {
     font-size: 24px;
   }
-  
+
   .demo-buttons {
     grid-template-columns: 1fr;
   }

@@ -4,9 +4,7 @@
     <nav class="navbar">
       <div class="container">
         <div class="nav-content">
-          <router-link to="/" class="logo">
-            OnlineStore
-          </router-link>
+          <router-link to="/" class="logo"> OnlineStore </router-link>
 
           <div class="nav-actions">
             <router-link to="/cart" class="cart-link">
@@ -18,9 +16,7 @@
 
             <span class="user-name">{{ authStore.user?.name }}</span>
 
-            <button @click="handleLogout" class="logout-btn">
-              Вийти
-            </button>
+            <button @click="handleLogout" class="logout-btn">Вийти</button>
           </div>
         </div>
       </div>
@@ -254,20 +250,20 @@ const passwordSuccessMessage = ref('')
 // Статистика пользователя
 const userStats = ref({
   totalOrders: 0,
-  totalSpent: 0
+  totalSpent: 0,
 })
 
 // Форма профиля
 const profileForm = reactive({
   name: authStore.user?.name || '',
-  email: authStore.user?.email || ''
+  email: authStore.user?.email || '',
 })
 
 // Форма смены пароля
 const passwordForm = reactive({
   currentPassword: '',
   newPassword: '',
-  confirmPassword: ''
+  confirmPassword: '',
 })
 
 // Валидация форм
@@ -276,9 +272,11 @@ const isProfileFormValid = computed(() => {
 })
 
 const isPasswordFormValid = computed(() => {
-  return passwordForm.currentPassword &&
-         passwordForm.newPassword.length >= 6 &&
-         passwordForm.newPassword === passwordForm.confirmPassword
+  return (
+    passwordForm.currentPassword &&
+    passwordForm.newPassword.length >= 6 &&
+    passwordForm.newPassword === passwordForm.confirmPassword
+  )
 })
 
 // Обновление профиля
@@ -292,19 +290,18 @@ const updateProfile = async () => {
 
     const updatedUser = await MockAPI.updateUserProfile({
       name: profileForm.name,
-      email: profileForm.email
+      email: profileForm.email,
     })
 
     // Обновляем данные в store
     authStore.user = updatedUser
-    
+
     successMessage.value = 'Профіль успішно оновлено!'
-    
+
     // Очищаем сообщение через 3 секунды
     setTimeout(() => {
       successMessage.value = ''
     }, 3000)
-
   } catch (err: any) {
     error.value = err.message || 'Помилка при оновленні профілю'
   } finally {
@@ -323,21 +320,20 @@ const updatePassword = async () => {
 
     await MockAPI.updateUserProfile({
       currentPassword: passwordForm.currentPassword,
-      newPassword: passwordForm.newPassword
+      newPassword: passwordForm.newPassword,
     })
 
     passwordSuccessMessage.value = 'Пароль успішно змінено!'
-    
+
     // Очищаем форму
     passwordForm.currentPassword = ''
     passwordForm.newPassword = ''
     passwordForm.confirmPassword = ''
-    
+
     // Очищаем сообщение через 3 секунды
     setTimeout(() => {
       passwordSuccessMessage.value = ''
     }, 3000)
-
   } catch (err: any) {
     passwordError.value = err.message || 'Помилка при зміні пароля'
   } finally {
@@ -375,15 +371,12 @@ const formatDate = (dateString?: string): string => {
   return date.toLocaleDateString('uk-UA', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   })
 }
 
 onMounted(async () => {
-  await Promise.all([
-    cartStore.initializeCart(),
-    loadUserStats()
-  ])
+  await Promise.all([cartStore.initializeCart(), loadUserStats()])
 })
 </script>
 
@@ -544,7 +537,7 @@ onMounted(async () => {
   color: #1a1a1a;
 }
 
-/* Фо��мы */
+/* Формы */
 .profile-form {
   margin-bottom: 0;
 }
@@ -600,7 +593,9 @@ onMounted(async () => {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Сообщения */

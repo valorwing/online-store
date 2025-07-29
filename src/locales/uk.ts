@@ -1,7 +1,7 @@
 export default {
   // Общие
   currency: 'UAH',
-  
+
   // Навигация
   nav: {
     home: 'Головна',
@@ -23,17 +23,17 @@ export default {
     features: {
       delivery: {
         title: 'Швидка доставка',
-        desc: 'Доставка по всій Україні від 1 дня'
+        desc: 'Доставка по всій Україні від 1 дня',
       },
       quality: {
         title: 'Висока якість',
-        desc: 'Тільки перевірені товари від надійних брендів'
+        desc: 'Тільки перевірені товари від надійних брендів',
       },
       support: {
         title: 'Підтримка 24/7',
-        desc: 'Завжди готові допомогти і відповісти на питання'
-      }
-    }
+        desc: 'Завжди готові допомогти і відповісти на питання',
+      },
+    },
   },
 
   // Профиль
@@ -44,7 +44,7 @@ export default {
     changePassword: 'Зміна пароля',
     accountStats: 'Статистика акаунту',
     quickActions: 'Швидкі дії',
-    name: 'Ім\'я',
+    name: "Ім'я",
     email: 'Email',
     currentPassword: 'Поточний пароль',
     newPassword: 'Новий пароль',
@@ -55,13 +55,13 @@ export default {
     updating: 'Оновлення...',
     profileUpdated: 'Профіль успішно оновлено!',
     passwordChanged: 'Пароль успішно змінено!',
-    totalOrders: 'Зага��ьна кількість замовлень',
+    totalOrders: 'Загальна кількість замовлень',
     totalSpent: 'Загальна сума покупок',
     registrationDate: 'Дата реєстрації',
     continueShoppingTitle: 'Продовжити покупки',
     continueShoppingDesc: 'Перейти в каталог товарів',
     cartTitle: 'Корзина',
-    unknown: 'Невідомо'
+    unknown: 'Невідомо',
   },
 
   // Корзина
@@ -77,7 +77,7 @@ export default {
     checkout: 'Оформити замовлення',
     subtotal: 'Підсумок',
     total: 'Разом',
-    recommended: 'Рекомендовані товари'
+    recommended: 'Рекомендовані товари',
   },
 
   // Оформление заказа
@@ -107,7 +107,7 @@ export default {
     delivery: 'Доставка',
     free: 'Безкоштовно',
     taxes: 'Податки',
-    included: 'Включені'
+    included: 'Включені',
   },
 
   // Заказы
@@ -115,7 +115,7 @@ export default {
     title: 'Мої замовлення',
     subtitle: 'Історія ваших покупок',
     empty: 'У вас поки немає замовлень',
-    emptyDesc: 'Почніть покупки в наш��му магазині!',
+    emptyDesc: 'Почніть покупки в нашому магазині!',
     order: 'Замовлення',
     shippingAddress: 'Адреса доставки',
     paymentMethod: 'Спосіб оплати',
@@ -133,8 +133,8 @@ export default {
       shipped: 'Відправлено',
       delivered: 'Доставлено',
       cancelled: 'Відмінено',
-      payment_failed: 'Оплата не пройшла'
-    }
+      payment_failed: 'Оплата не пройшла',
+    },
   },
 
   // Авторизация
@@ -148,14 +148,14 @@ export default {
     demoAccounts: 'Демо акаунти:',
     admin: 'Адмін',
     user: 'Користувач',
-    fullName: 'Повне ім\'я',
-    enterName: 'Введіть ваше ім\'я',
+    fullName: "Повне ім'я",
+    enterName: "Введіть ваше ім'я",
     enterEmail: 'Введіть ваш email',
     enterPassword: 'Введіть ваш пароль',
     confirmPasswordField: 'Підтвердіть пароль',
     loginBtn: 'Увійти',
     registerBtn: 'Зареєструватися',
-    processing: 'Обробка...'
+    processing: 'Обробка...',
   },
 
   // Админка
@@ -175,7 +175,7 @@ export default {
     price: 'Ціна',
     stock: 'Кількість на складі',
     category: 'Категорія',
-    active: 'Активний'
+    active: 'Активний',
   },
 
   // Настройки
@@ -185,7 +185,7 @@ export default {
     lightTheme: 'Світла',
     darkTheme: 'Темна',
     ukrainian: 'Українська',
-    russian: 'Русский'
+    russian: 'Русский',
   },
 
   // Общие кнопки и действия
@@ -204,16 +204,16 @@ export default {
     sort: 'Сортування',
     loading: 'Завантаження...',
     error: 'Помилка',
-    success: 'Успіх'
+    success: 'Успіх',
   },
 
   // Ошибки
   errors: {
-    required: 'Це поле обов\'язкове',
+    required: "Це поле обов'язкове",
     emailInvalid: 'Невірний формат email',
     passwordTooShort: 'Пароль повинен містити мінімум 6 символів',
     passwordsMismatch: 'Паролі не співпадають',
     loginFailed: 'Невірний email або пароль',
-    networkError: 'Помилка мережі. Спробуйте пізніше.'
-  }
+    networkError: 'Помилка мережі. Спробуйте пізніше.',
+  },
 }

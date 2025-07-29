@@ -4,10 +4,8 @@
     <nav class="navbar">
       <div class="container">
         <div class="nav-content">
-          <router-link to="/" class="logo">
-            OnlineStore
-          </router-link>
-          
+          <router-link to="/" class="logo"> OnlineStore </router-link>
+
           <div class="nav-actions">
             <router-link v-if="!authStore.isAuthenticated" to="/login" class="btn btn-primary">
               Войти
@@ -20,20 +18,18 @@
                 <span class="dropdown-arrow">▼</span>
               </button>
 
-              <div v-if="showUserMenu" v-click-outside="() => showUserMenu = false" class="dropdown-menu">
-                <router-link to="/profile" class="dropdown-item">
-                  👤 Профіль
-                </router-link>
-                <router-link to="/orders" class="dropdown-item">
-                  📦 Мої замовлення
-                </router-link>
+              <div
+                v-if="showUserMenu"
+                v-click-outside="() => (showUserMenu = false)"
+                class="dropdown-menu"
+              >
+                <router-link to="/profile" class="dropdown-item"> 👤 Профіль </router-link>
+                <router-link to="/orders" class="dropdown-item"> 📦 Мої замовлення </router-link>
                 <router-link v-if="authStore.isAdmin" to="/admin" class="dropdown-item">
                   ⚙️ Адмін панель
                 </router-link>
                 <hr class="dropdown-divider" />
-                <button @click="handleLogout" class="dropdown-item logout-btn">
-                  🚪 Вийти
-                </button>
+                <button @click="handleLogout" class="dropdown-item logout-btn">🚪 Вийти</button>
               </div>
             </div>
           </div>
@@ -52,48 +48,31 @@
       <!-- Заголовок -->
       <div class="page-header">
         <h1 class="page-title">Корзина</h1>
-        <p class="page-subtitle">
-          {{ cartStore.totalItems }} товар(ов) в ко��зине
-        </p>
+        <p class="page-subtitle">{{ cartStore.totalItems }} товар(ов) в корзине</p>
       </div>
 
       <!-- Пустая корзина -->
       <div v-if="cartStore.isEmpty" class="empty-cart">
         <div class="empty-icon">🛒</div>
         <h3 class="empty-title">Корзина пуста</h3>
-        <p class="empty-description">Добавьте товары в корзину, чтобы продол��ить покупки.</p>
-        <router-link to="/shop" class="btn btn-primary btn-lg">
-          Перейти в магазин
-        </router-link>
+        <p class="empty-description">Добавьте товары в корзину, чтобы продолжить покупки.</p>
+        <router-link to="/shop" class="btn btn-primary btn-lg"> Перейти в магазин </router-link>
       </div>
 
       <!-- Содержимое корзины -->
       <div v-else class="cart-content">
         <!-- Список товаров -->
         <div class="cart-items">
-          <div
-            v-for="item in cartStore.items"
-            :key="item.productId"
-            class="cart-item"
-          >
-            <img
-              :src="item.product.images[0]"
-              :alt="item.product.name"
-              class="item-image"
-            />
+          <div v-for="item in cartStore.items" :key="item.productId" class="cart-item">
+            <img :src="item.product.images[0]" :alt="item.product.name" class="item-image" />
 
             <div class="item-info">
               <h3 class="item-name">{{ item.product.name }}</h3>
-              <p class="item-description">
-                {{ item.product.description.slice(0, 100) }}...
-              </p>
-              
+              <p class="item-description">{{ item.product.description.slice(0, 100) }}...</p>
+
               <div class="item-price">
                 <span class="price-current">{{ formatPrice(item.product.price) }}</span>
-                <span
-                  v-if="item.product.originalPrice"
-                  class="price-original"
-                >
+                <span v-if="item.product.originalPrice" class="price-original">
                   {{ formatPrice(item.product.originalPrice) }}
                 </span>
               </div>
@@ -101,33 +80,18 @@
 
             <div class="item-controls">
               <div class="quantity-controls">
-                <button
-                  @click="decreaseQuantity(item.productId)"
-                  class="quantity-btn"
-                >
-                  −
-                </button>
-                
+                <button @click="decreaseQuantity(item.productId)" class="quantity-btn">−</button>
+
                 <span class="quantity">{{ item.quantity }}</span>
-                
-                <button
-                  @click="increaseQuantity(item.productId)"
-                  class="quantity-btn"
-                >
-                  +
-                </button>
+
+                <button @click="increaseQuantity(item.productId)" class="quantity-btn">+</button>
               </div>
 
               <div class="item-total">
                 {{ formatPrice(item.product.price * item.quantity) }}
               </div>
 
-              <button
-                @click="removeItem(item.productId)"
-                class="remove-btn"
-              >
-                Удалить
-              </button>
+              <button @click="removeItem(item.productId)" class="remove-btn">Удалить</button>
             </div>
           </div>
         </div>
@@ -136,19 +100,19 @@
         <div class="cart-summary">
           <div class="card">
             <h3 class="summary-title">Итого</h3>
-            
+
             <div class="summary-row">
               <span>Товары ({{ cartStore.totalItems }})</span>
               <span class="summary-value">{{ formatPrice(cartStore.totalPrice) }}</span>
             </div>
-            
+
             <div class="summary-row">
               <span>Доставка</span>
               <span class="summary-value free">Бесплатно</span>
             </div>
-            
+
             <hr class="summary-divider" />
-            
+
             <div class="summary-row total">
               <span>Общая сумма</span>
               <span class="summary-value">{{ formatPrice(cartStore.totalPrice) }}</span>
@@ -158,21 +122,17 @@
               <router-link to="/checkout" class="btn btn-primary btn-lg">
                 Оформить заказ
               </router-link>
-              
-              <router-link to="/shop" class="btn btn-secondary">
-                Продолжить покупки
-              </router-link>
-              
-              <button @click="clearCart" class="clear-btn">
-                Очистить корзину
-              </button>
+
+              <router-link to="/shop" class="btn btn-secondary"> Продолжить покупки </router-link>
+
+              <button @click="clearCart" class="clear-btn">Очистить корзину</button>
             </div>
 
             <div class="delivery-info">
               <h4 class="info-title">Информация о доставке</h4>
               <ul class="info-list">
                 <li>• Бесплатная доставка от 1200₴</li>
-                <li>• Д��ставка в течение 1-3 дней</li>
+                <li>• Доставка в течение 1-3 дней</li>
                 <li>• Возможность примерки</li>
                 <li>• Гарантия возврата 14 дней</li>
               </ul>
@@ -183,28 +143,17 @@
 
       <!-- Рекомендуемые товары -->
       <div v-if="!cartStore.isEmpty && recommendedProducts.length > 0" class="recommendations">
-        <h2 class="section-title">Вам может понрав��ться</h2>
+        <h2 class="section-title">Вам может понравиться</h2>
         <div class="recommendations-grid">
-          <div
-            v-for="product in recommendedProducts"
-            :key="product.id"
-            class="recommendation-card"
-          >
-            <img
-              :src="product.images[0]"
-              :alt="product.name"
-              class="recommendation-image"
-            />
+          <div v-for="product in recommendedProducts" :key="product.id" class="recommendation-card">
+            <img :src="product.images[0]" :alt="product.name" class="recommendation-image" />
             <div class="recommendation-info">
               <h3 class="recommendation-name">{{ product.name }}</h3>
               <div class="recommendation-footer">
                 <span class="recommendation-price">
                   {{ formatPrice(product.price) }}
                 </span>
-                <button
-                  @click="addToCart(product.id)"
-                  class="btn btn-primary btn-sm"
-                >
+                <button @click="addToCart(product.id)" class="btn btn-primary btn-sm">
                   В корзину
                 </button>
               </div>
@@ -233,8 +182,8 @@ const showUserMenu = ref(false)
 const loadRecommendedProducts = async () => {
   try {
     const products = await MockAPI.getProducts({ limit: 4 })
-    const cartProductIds = cartStore.items.map(item => item.productId)
-    recommendedProducts.value = products.filter(product => !cartProductIds.includes(product.id))
+    const cartProductIds = cartStore.items.map((item) => item.productId)
+    recommendedProducts.value = products.filter((product) => !cartProductIds.includes(product.id))
   } catch (error) {
     console.error('Ошибка загрузки рекомендованных товаров:', error)
   }

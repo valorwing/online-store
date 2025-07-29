@@ -75,7 +75,7 @@ export interface PaymentMethod {
   isActive: boolean
 }
 
-// Mock базы данных с демо-да��ными
+// Mock базы данных с демо-данными
 class MockDatabase {
   private users: User[] = [
     {
@@ -236,7 +236,7 @@ class MockDatabase {
       userId: 2,
       items: [
         { productId: 1, quantity: 1, price: 48000 },
-        { productId: 5, quantity: 1, price: 18000 }
+        { productId: 5, quantity: 1, price: 18000 },
       ],
       totalAmount: 66000,
       status: 'delivered',
@@ -246,16 +246,14 @@ class MockDatabase {
         address: 'вул. Хрещатик, 22, кв. 15',
         city: 'Київ',
         postalCode: '01001',
-        phone: '+380 (67) 123-45-67'
+        phone: '+380 (67) 123-45-67',
       },
-      createdAt: '2024-01-15T10:30:00Z'
+      createdAt: '2024-01-15T10:30:00Z',
     },
     {
       id: 2,
       userId: 2,
-      items: [
-        { productId: 3, quantity: 1, price: 60000 }
-      ],
+      items: [{ productId: 3, quantity: 1, price: 60000 }],
       totalAmount: 60000,
       status: 'shipped',
       paymentMethod: 'privat24',
@@ -264,16 +262,14 @@ class MockDatabase {
         address: 'вул. Хрещатик, 22, кв. 15',
         city: 'Київ',
         postalCode: '01001',
-        phone: '+380 (67) 123-45-67'
+        phone: '+380 (67) 123-45-67',
       },
-      createdAt: '2024-01-20T14:15:00Z'
+      createdAt: '2024-01-20T14:15:00Z',
     },
     {
       id: 3,
       userId: 2,
-      items: [
-        { productId: 2, quantity: 1, price: 46000 }
-      ],
+      items: [{ productId: 2, quantity: 1, price: 46000 }],
       totalAmount: 46000,
       status: 'payment_failed',
       paymentMethod: 'card',
@@ -282,10 +278,10 @@ class MockDatabase {
         address: 'вул. Хрещатик, 22, кв. 15',
         city: 'Київ',
         postalCode: '01001',
-        phone: '+380 (67) 123-45-67'
+        phone: '+380 (67) 123-45-67',
       },
-      createdAt: '2024-01-22T09:45:00Z'
-    }
+      createdAt: '2024-01-22T09:45:00Z',
+    },
   ]
   private currentOrderId = 4
 
@@ -491,7 +487,7 @@ const mockDB = new MockDatabase()
 // Утилита для имитации задержки сети
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
-// Утилита ��ля генерации JWT токена (mock)
+// Утилита для генерации JWT токена (mock)
 const generateMockJWT = (user: Omit<User, 'password'>): string => {
   // В реальном приложении здесь должна быть настоящая JWT библиотека
   const payload = {
@@ -674,7 +670,7 @@ export class MockAPI {
 
     const currentUser = await this.getCurrentUser()
     if (!currentUser || currentUser.role !== 'admin') {
-      throw new Error('Доступ ��апрещен')
+      throw new Error('Доступ запрещен')
     }
 
     const updated = mockDB.updateProduct(id, updates)
@@ -758,7 +754,7 @@ export class MockAPI {
     // Проверяем текущий пароль если меняется пароль
     if (updates.newPassword) {
       if (!updates.currentPassword) {
-        throw new Error('Необходимо указат�� текущий пароль')
+        throw new Error('Необходимо указать текущий пароль')
       }
 
       const user = mockDB.findUserById(currentUser.id)
@@ -791,7 +787,7 @@ export class MockAPI {
     return userWithoutPassword as User
   }
 
-  // Методы для рабо��ы с платежными системами
+  // Методы для работы с платежными системами
   static async getPaymentMethods(): Promise<PaymentMethod[]> {
     await delay(200)
     return mockDB.getPaymentMethods()
