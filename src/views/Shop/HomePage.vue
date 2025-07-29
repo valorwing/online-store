@@ -302,6 +302,7 @@ import MockAPI, { type Category, type Product } from '@/services/api'
 const router = useRouter()
 const authStore = useAuthStore()
 const cartStore = useCartStore()
+const notificationStore = useNotificationStore()
 
 const categories = ref<Category[]>([])
 const featuredProducts = ref<Product[]>([])
@@ -336,7 +337,7 @@ const loadFeaturedProducts = async () => {
 const addToCart = async (productId: number) => {
   try {
     await cartStore.addToCart(productId)
-    // Можно добав��ть уведомление об успешном добавлении
+    // Можно добавить уведомление об успешном добавлении
   } catch (error) {
     console.error('Ошибка добавления в корзину:', error)
   }
