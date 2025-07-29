@@ -74,18 +74,30 @@ module.exports = {
           700: '#b91c1c',
           800: '#991b1b',
           900: '#7f1d1d',
-        }
+        },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+        sans: [
+          'Inter',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+        ],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'bounce-gentle': 'bounceGentle 2s infinite',
         'pulse-gentle': 'pulseGentle 3s ease-in-out infinite',
-        'gradient': 'gradient 6s ease infinite',
-        'float': 'float 3s ease-in-out infinite',
+        gradient: 'gradient 6s ease infinite',
+        float: 'float 3s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -117,45 +129,46 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-pattern': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"6\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+        'hero-pattern':
+          'url(\'data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="6"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\')',
       },
       backdropBlur: {
         xs: '2px',
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(59, 130, 246, 0.3)',
+        glow: '0 0 20px rgba(59, 130, 246, 0.3)',
         'glow-lg': '0 0 40px rgba(59, 130, 246, 0.4)',
-        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        card: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       },
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [
-    require('@tailwindcss/forms'), 
+    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    function({ addUtilities }) {
+    function ({ addUtilities }) {
       const newUtilities = {
         '.text-gradient': {
-          'background': 'linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4)',
+          background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4)',
           'background-size': '200% 200%',
           '-webkit-background-clip': 'text',
           'background-clip': 'text',
           '-webkit-text-fill-color': 'transparent',
-          'animation': 'gradient 3s ease infinite',
+          animation: 'gradient 3s ease infinite',
         },
         '.glass': {
-          'background': 'rgba(255, 255, 255, 0.1)',
+          background: 'rgba(255, 255, 255, 0.1)',
           'backdrop-filter': 'blur(10px)',
-          'border': '1px solid rgba(255, 255, 255, 0.2)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
         },
         '.glass-dark': {
-          'background': 'rgba(0, 0, 0, 0.1)',
+          background: 'rgba(0, 0, 0, 0.1)',
           'backdrop-filter': 'blur(10px)',
-          'border': '1px solid rgba(255, 255, 255, 0.1)',
-        }
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+        },
       }
       addUtilities(newUtilities)
-    }
+    },
   ],
 }

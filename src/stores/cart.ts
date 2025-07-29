@@ -12,12 +12,10 @@ export const useCartStore = defineStore('cart', () => {
   const isLoading = ref(false)
 
   // Вычисляемые свойства
-  const totalItems = computed(() => 
-    items.value.reduce((sum, item) => sum + item.quantity, 0)
-  )
+  const totalItems = computed(() => items.value.reduce((sum, item) => sum + item.quantity, 0))
 
-  const totalPrice = computed(() => 
-    items.value.reduce((sum, item) => sum + (item.product.price * item.quantity), 0)
+  const totalPrice = computed(() =>
+    items.value.reduce((sum, item) => sum + item.product.price * item.quantity, 0),
   )
 
   const isEmpty = computed(() => items.value.length === 0)
@@ -37,7 +35,7 @@ export const useCartStore = defineStore('cart', () => {
           if (product) {
             itemsWithProducts.push({
               ...item,
-              product
+              product,
             })
           }
         }
@@ -54,16 +52,16 @@ export const useCartStore = defineStore('cart', () => {
 
   // Сохранение корзины в localStorage
   const saveCart = () => {
-    const cartItems: CartItem[] = items.value.map(item => ({
+    const cartItems: CartItem[] = items.value.map((item) => ({
       productId: item.productId,
-      quantity: item.quantity
+      quantity: item.quantity,
     }))
     localStorage.setItem('cart_items', JSON.stringify(cartItems))
   }
 
   // Добавление товара в корзину
   const addToCart = async (productId: number, quantity: number = 1) => {
-    const existingItemIndex = items.value.findIndex(item => item.productId === productId)
+    const existingItemIndex = items.value.findIndex((item) => item.productId === productId)
 
     if (existingItemIndex !== -1) {
       // Увеличиваем количество существующего товара
@@ -78,7 +76,7 @@ export const useCartStore = defineStore('cart', () => {
       items.value.push({
         productId,
         quantity,
-        product
+        product,
       })
     }
 
@@ -87,7 +85,7 @@ export const useCartStore = defineStore('cart', () => {
 
   // Обновление количества товара
   const updateQuantity = (productId: number, quantity: number) => {
-    const itemIndex = items.value.findIndex(item => item.productId === productId)
+    const itemIndex = items.value.findIndex((item) => item.productId === productId)
     if (itemIndex !== -1) {
       if (quantity <= 0) {
         // Удаляем товар если количество 0 или меньше
@@ -101,7 +99,7 @@ export const useCartStore = defineStore('cart', () => {
 
   // Удаление товара из корзины
   const removeFromCart = (productId: number) => {
-    const itemIndex = items.value.findIndex(item => item.productId === productId)
+    const itemIndex = items.value.findIndex((item) => item.productId === productId)
     if (itemIndex !== -1) {
       items.value.splice(itemIndex, 1)
       saveCart()
@@ -116,25 +114,25 @@ export const useCartStore = defineStore('cart', () => {
 
   // Получение количества конкретного товара в корзине
   const getItemQuantity = (productId: number): number => {
-    const item = items.value.find(item => item.productId === productId)
+    const item = items.value.find((item) => item.productId === productId)
     return item?.quantity || 0
   }
 
   // Проверка, есть ли товар в корзине
   const isInCart = (productId: number): boolean => {
-    return items.value.some(item => item.productId === productId)
+    return items.value.some((item) => item.productId === productId)
   }
 
   return {
     // Состояние
     items,
     isLoading,
-    
+
     // Вычисляемые свойства
     totalItems,
     totalPrice,
     isEmpty,
-    
+
     // Методы
     initializeCart,
     addToCart,
@@ -142,6 +140,6 @@ export const useCartStore = defineStore('cart', () => {
     removeFromCart,
     clearCart,
     getItemQuantity,
-    isInCart
+    isInCart,
   }
 })

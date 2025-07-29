@@ -4,10 +4,8 @@
     <nav class="bg-white shadow-lg">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-          <router-link to="/" class="text-2xl font-bold text-primary">
-            OnlineStore
-          </router-link>
-          
+          <router-link to="/" class="text-2xl font-bold text-primary"> OnlineStore </router-link>
+
           <span class="text-gray-700">{{ authStore.user?.name }}</span>
         </div>
       </div>
@@ -28,7 +26,11 @@
           <li>
             <div class="flex items-center">
               <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                />
               </svg>
               <router-link
                 to="/cart"
@@ -41,7 +43,11 @@
           <li>
             <div class="flex items-center">
               <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                />
               </svg>
               <span class="ml-1 text-sm font-medium text-gray-500">Оформление заказа</span>
             </div>
@@ -74,12 +80,10 @@
             <!-- Контактная инф��рмация -->
             <div class="bg-white rounded-lg shadow-md p-6">
               <h3 class="text-lg font-semibold text-gray-900 mb-4">Контактная информация</h3>
-              
+
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1">
-                    Имя *
-                  </label>
+                  <label class="block text-sm font-medium text-gray-700 mb-1"> Имя * </label>
                   <input
                     v-model="orderForm.fullName"
                     type="text"
@@ -87,11 +91,9 @@
                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1">
-                    Телефон *
-                  </label>
+                  <label class="block text-sm font-medium text-gray-700 mb-1"> Телефон * </label>
                   <input
                     v-model="orderForm.phone"
                     type="tel"
@@ -106,12 +108,10 @@
             <!-- Адрес доставки -->
             <div class="bg-white rounded-lg shadow-md p-6">
               <h3 class="text-lg font-semibold text-gray-900 mb-4">Адрес доставки</h3>
-              
+
               <div class="space-y-4">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1">
-                    Адрес *
-                  </label>
+                  <label class="block text-sm font-medium text-gray-700 mb-1"> Адрес * </label>
                   <input
                     v-model="orderForm.address"
                     type="text"
@@ -120,12 +120,10 @@
                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   />
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                      Город *
-                    </label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"> Город * </label>
                     <input
                       v-model="orderForm.city"
                       type="text"
@@ -133,7 +131,7 @@
                       class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                   </div>
-                  
+
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">
                       Почтовый индекс *
@@ -153,13 +151,13 @@
             <!-- Способ оплаты -->
             <div class="bg-white rounded-lg shadow-md p-6">
               <h3 class="text-lg font-semibold text-gray-900 mb-4">Способ оплаты</h3>
-              
+
               <div v-if="isLoadingPaymentMethods" class="animate-pulse">
                 <div class="space-y-3">
                   <div v-for="n in 3" :key="n" class="h-16 bg-gray-200 rounded-lg"></div>
                 </div>
               </div>
-              
+
               <div v-else class="space-y-3">
                 <label
                   v-for="method in paymentMethods"
@@ -205,7 +203,7 @@
         <div class="lg:sticky lg:top-8 lg:self-start">
           <div class="bg-white rounded-lg shadow-md p-6">
             <h3 class="text-xl font-semibold text-gray-900 mb-6">Ваш заказ</h3>
-            
+
             <!-- Список товаров -->
             <div class="space-y-4 mb-6">
               <div
@@ -220,16 +218,14 @@
                     class="w-full h-full object-cover rounded-lg"
                   />
                 </div>
-                
+
                 <div class="flex-1 min-w-0">
                   <h4 class="text-sm font-medium text-gray-900 truncate">
                     {{ item.product.name }}
                   </h4>
-                  <p class="text-sm text-gray-600">
-                    Количество: {{ item.quantity }}
-                  </p>
+                  <p class="text-sm text-gray-600">Количество: {{ item.quantity }}</p>
                 </div>
-                
+
                 <div class="text-sm font-semibold text-gray-900">
                   {{ formatPrice(item.product.price * item.quantity) }}
                 </div>
@@ -244,19 +240,19 @@
                 <span class="text-gray-600">Подытог</span>
                 <span class="font-semibold">{{ formatPrice(cartStore.totalPrice) }}</span>
               </div>
-              
+
               <div class="flex justify-between">
                 <span class="text-gray-600">Доставка</span>
                 <span class="font-semibold text-green-600">Бесплатно</span>
               </div>
-              
+
               <div class="flex justify-between">
                 <span class="text-gray-600">Налоги</span>
                 <span class="font-semibold">Включены</span>
               </div>
-              
+
               <hr />
-              
+
               <div class="flex justify-between text-lg">
                 <span class="font-semibold">Итого</span>
                 <span class="font-bold text-primary">{{ formatPrice(cartStore.totalPrice) }}</span>
@@ -290,16 +286,21 @@
       >
         <div class="text-green-500 mb-4">
           <svg class="mx-auto h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
           </svg>
         </div>
-        
+
         <h3 class="text-2xl font-bold text-gray-900 mb-4">Заказ успешно оформлен!</h3>
         <p class="text-gray-600 mb-6">
-          Заказ #{{ createdOrder?.id }} принят в обработку.<br>
+          Заказ #{{ createdOrder?.id }} принят в обработку.<br />
           Мы отправим уведомление о статусе заказа на ваш email.
         </p>
-        
+
         <div class="space-y-3">
           <router-link
             to="/orders"
@@ -307,7 +308,7 @@
           >
             Посмотреть заказы
           </router-link>
-          
+
           <router-link
             to="/"
             class="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-200 transition-colors block"
@@ -343,7 +344,7 @@ const orderForm = reactive({
   address: '',
   city: '',
   postalCode: '',
-  paymentMethod: ''
+  paymentMethod: '',
 })
 
 const isFormValid = computed(() => {
@@ -362,7 +363,7 @@ const loadPaymentMethods = async () => {
   try {
     isLoadingPaymentMethods.value = true
     paymentMethods.value = await MockAPI.getPaymentMethods()
-    
+
     // Устанавливаем первый метод по умолчанию
     if (paymentMethods.value.length > 0) {
       orderForm.paymentMethod = paymentMethods.value[0].id
@@ -382,10 +383,10 @@ const submitOrder = async () => {
 
     // Создаем заказ
     const orderData = {
-      items: cartStore.items.map(item => ({
+      items: cartStore.items.map((item) => ({
         productId: item.productId,
         quantity: item.quantity,
-        price: item.product.price
+        price: item.product.price,
       })),
       totalAmount: cartStore.totalPrice,
       status: 'pending' as const,
@@ -395,8 +396,8 @@ const submitOrder = async () => {
         address: orderForm.address,
         city: orderForm.city,
         postalCode: orderForm.postalCode,
-        phone: orderForm.phone
-      }
+        phone: orderForm.phone,
+      },
     }
 
     const order = await MockAPI.createOrder(orderData)
@@ -426,7 +427,7 @@ const formatPrice = (price: number): string => {
   return new Intl.NumberFormat('ru-RU', {
     style: 'currency',
     currency: 'RUB',
-    minimumFractionDigits: 0
+    minimumFractionDigits: 0,
   }).format(price)
 }
 

@@ -42,7 +42,7 @@
                 'py-2 px-1 border-b-2 font-medium text-sm transition-colors',
                 activeTab === 'categories'
                   ? 'border-primary text-primary'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
               ]"
             >
               Категории
@@ -53,7 +53,7 @@
                 'py-2 px-1 border-b-2 font-medium text-sm transition-colors',
                 activeTab === 'products'
                   ? 'border-primary text-primary'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
               ]"
             >
               Товары
@@ -79,19 +79,29 @@
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
               <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Изображение
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Название
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Описание
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Статус
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Действия
                 </th>
               </tr>
@@ -110,15 +120,15 @@
                   <div class="text-sm text-gray-500">{{ category.slug }}</div>
                 </td>
                 <td class="px-6 py-4">
-                  <div class="text-sm text-gray-900 max-w-xs truncate">{{ category.description }}</div>
+                  <div class="text-sm text-gray-900 max-w-xs truncate">
+                    {{ category.description }}
+                  </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <span
                     :class="[
                       'inline-flex px-2 py-1 text-xs font-semibold rounded-full',
-                      category.isActive
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-red-100 text-red-800'
+                      category.isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800',
                     ]"
                   >
                     {{ category.isActive ? 'Активна' : 'Неактивна' }}
@@ -161,25 +171,39 @@
           <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
               <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Изображение
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Название
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Цен��
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Категория
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Остаток
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Статус
                 </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Действия
                 </th>
               </tr>
@@ -194,7 +218,9 @@
                   />
                 </td>
                 <td class="px-6 py-4">
-                  <div class="text-sm font-medium text-gray-900 max-w-xs truncate">{{ product.name }}</div>
+                  <div class="text-sm font-medium text-gray-900 max-w-xs truncate">
+                    {{ product.name }}
+                  </div>
                   <div class="text-sm text-gray-500">{{ product.slug }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
@@ -212,7 +238,11 @@
                   <div
                     :class="[
                       'text-sm',
-                      product.stock > 10 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600'
+                      product.stock > 10
+                        ? 'text-green-600'
+                        : product.stock > 0
+                          ? 'text-yellow-600'
+                          : 'text-red-600',
                     ]"
                   >
                     {{ product.stock }}
@@ -222,9 +252,7 @@
                   <span
                     :class="[
                       'inline-flex px-2 py-1 text-xs font-semibold rounded-full',
-                      product.isActive
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-red-100 text-red-800'
+                      product.isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800',
                     ]"
                   >
                     {{ product.isActive ? 'Активен' : 'Неактивен' }}
@@ -357,11 +385,7 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               >
                 <option value="">Выберите категорию</option>
-                <option
-                  v-for="category in categories"
-                  :key="category.id"
-                  :value="category.id"
-                >
+                <option v-for="category in categories" :key="category.id" :value="category.id">
                   {{ category.name }}
                 </option>
               </select>
@@ -423,7 +447,9 @@
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Особенности (через запятую)</label>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Особенности (через запятую)</label
+            >
             <input
               v-model="productForm.featuresText"
               type="text"
@@ -488,7 +514,7 @@ const categoryForm = reactive({
   name: '',
   description: '',
   image: '',
-  isActive: true
+  isActive: true,
 })
 
 const productForm = reactive({
@@ -500,7 +526,7 @@ const productForm = reactive({
   stock: 0,
   imageUrl: '',
   featuresText: '',
-  isActive: true
+  isActive: true,
 })
 
 const loadCategories = async () => {
@@ -521,7 +547,7 @@ const loadProducts = async () => {
 
 const openCategoryModal = (category?: Category) => {
   editingCategory.value = category || null
-  
+
   if (category) {
     categoryForm.name = category.name
     categoryForm.description = category.description
@@ -533,7 +559,7 @@ const openCategoryModal = (category?: Category) => {
     categoryForm.image = ''
     categoryForm.isActive = true
   }
-  
+
   showCategoryModal.value = true
 }
 
@@ -545,13 +571,14 @@ const closeCategoryModal = () => {
 const saveCategoryModal = async () => {
   try {
     isSaving.value = true
-    
+
     const categoryData = {
       name: categoryForm.name,
       slug: categoryForm.name.toLowerCase().replace(/\s+/g, '-'),
       description: categoryForm.description,
-      image: categoryForm.image || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
-      isActive: categoryForm.isActive
+      image:
+        categoryForm.image || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+      isActive: categoryForm.isActive,
     }
 
     if (editingCategory.value) {
@@ -586,7 +613,7 @@ const deleteCategory = async (id: number) => {
 
 const openProductModal = (product?: Product) => {
   editingProduct.value = product || null
-  
+
   if (product) {
     productForm.name = product.name
     productForm.description = product.description
@@ -608,7 +635,7 @@ const openProductModal = (product?: Product) => {
     productForm.featuresText = ''
     productForm.isActive = true
   }
-  
+
   showProductModal.value = true
 }
 
@@ -620,20 +647,24 @@ const closeProductModal = () => {
 const saveProductModal = async () => {
   try {
     isSaving.value = true
-    
+
     const productData = {
       name: productForm.name,
       slug: productForm.name.toLowerCase().replace(/\s+/g, '-'),
       description: productForm.description,
       price: productForm.price,
       originalPrice: productForm.originalPrice || undefined,
-      images: [productForm.imageUrl || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600'],
+      images: [
+        productForm.imageUrl || 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600',
+      ],
       categoryId: parseInt(productForm.categoryId),
       stock: productForm.stock,
       isActive: productForm.isActive,
       rating: 4.5,
       reviewsCount: 0,
-      features: productForm.featuresText ? productForm.featuresText.split(',').map(f => f.trim()) : []
+      features: productForm.featuresText
+        ? productForm.featuresText.split(',').map((f) => f.trim())
+        : [],
     }
 
     if (editingProduct.value) {
@@ -667,7 +698,7 @@ const deleteProduct = async (id: number) => {
 }
 
 const getCategoryName = (categoryId: number): string => {
-  const category = categories.value.find(c => c.id === categoryId)
+  const category = categories.value.find((c) => c.id === categoryId)
   return category?.name || 'Неизвестная категория'
 }
 
@@ -675,7 +706,7 @@ const formatPrice = (price: number): string => {
   return new Intl.NumberFormat('ru-RU', {
     style: 'currency',
     currency: 'RUB',
-    minimumFractionDigits: 0
+    minimumFractionDigits: 0,
   }).format(price)
 }
 

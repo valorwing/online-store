@@ -84,7 +84,7 @@ class MockDatabase {
       password: 'admin123',
       name: 'Администратор',
       role: 'admin',
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 2,
@@ -92,8 +92,8 @@ class MockDatabase {
       password: 'user123',
       name: 'Пользователь',
       role: 'user',
-      createdAt: '2024-01-01T00:00:00Z'
-    }
+      createdAt: '2024-01-01T00:00:00Z',
+    },
   ]
 
   private categories: Category[] = [
@@ -104,7 +104,7 @@ class MockDatabase {
       description: 'Современная электроника и гаджеты',
       image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400',
       isActive: true,
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 2,
@@ -114,7 +114,7 @@ class MockDatabase {
       image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400',
       parentId: 1,
       isActive: true,
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 3,
@@ -124,7 +124,7 @@ class MockDatabase {
       image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400',
       parentId: 1,
       isActive: true,
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 4,
@@ -133,7 +133,7 @@ class MockDatabase {
       description: 'Модная одежда для всех сезонов',
       image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400',
       isActive: true,
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 5,
@@ -142,8 +142,8 @@ class MockDatabase {
       description: 'Товары для дома и сада',
       image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400',
       isActive: true,
-      createdAt: '2024-01-01T00:00:00Z'
-    }
+      createdAt: '2024-01-01T00:00:00Z',
+    },
   ]
 
   private products: Product[] = [
@@ -156,7 +156,7 @@ class MockDatabase {
       originalPrice: 130000,
       images: [
         'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600',
-        'https://images.unsplash.com/photo-1695048142956-91a5e94aaacf?w=600'
+        'https://images.unsplash.com/photo-1695048142956-91a5e94aaacf?w=600',
       ],
       categoryId: 2,
       stock: 15,
@@ -164,7 +164,7 @@ class MockDatabase {
       rating: 4.8,
       reviewsCount: 127,
       features: ['6.1" Super Retina XDR', 'A17 Pro чип', '48MP камера', '5G'],
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 2,
@@ -172,16 +172,14 @@ class MockDatabase {
       slug: 'samsung-galaxy-s24-ultra',
       description: 'Флагманский смартфон с S Pen и невероятной камерой',
       price: 115000,
-      images: [
-        'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600'
-      ],
+      images: ['https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600'],
       categoryId: 2,
       stock: 8,
       isActive: true,
       rating: 4.7,
       reviewsCount: 95,
       features: ['6.8" Dynamic AMOLED', 'Snapdragon 8 Gen 3', '200MP камера', 'S Pen'],
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 3,
@@ -189,16 +187,14 @@ class MockDatabase {
       slug: 'macbook-air-m3',
       description: 'Сверхтонкий и мощный ноутбук на чипе M3',
       price: 150000,
-      images: [
-        'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600'
-      ],
+      images: ['https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600'],
       categoryId: 3,
       stock: 12,
       isActive: true,
       rating: 4.9,
       reviewsCount: 203,
       features: ['13.6" Liquid Retina', 'M3 чип', '18 часов работы', 'MagSafe 3'],
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 4,
@@ -207,16 +203,14 @@ class MockDatabase {
       description: 'Компактный ноутбук для профессионалов',
       price: 95000,
       originalPrice: 105000,
-      images: [
-        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600'
-      ],
+      images: ['https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600'],
       categoryId: 3,
       stock: 6,
       isActive: true,
       rating: 4.6,
       reviewsCount: 78,
       features: ['13.4" FHD+', 'Intel i7-1365U', '16GB RAM', 'Thunderbolt 4'],
-      createdAt: '2024-01-01T00:00:00Z'
+      createdAt: '2024-01-01T00:00:00Z',
     },
     {
       id: 5,
@@ -224,17 +218,15 @@ class MockDatabase {
       slug: 'delonghi-coffee-machine',
       description: 'Автоматическая кофемашина с капучинатором',
       price: 45000,
-      images: [
-        'https://images.unsplash.com/photo-1545665277-5937750217c5?w=600'
-      ],
+      images: ['https://images.unsplash.com/photo-1545665277-5937750217c5?w=600'],
       categoryId: 5,
       stock: 20,
       isActive: true,
       rating: 4.5,
       reviewsCount: 156,
       features: ['15 бар давления', 'Автокапучинатор', '1.8л резервуар', 'LCD дисплей'],
-      createdAt: '2024-01-01T00:00:00Z'
-    }
+      createdAt: '2024-01-01T00:00:00Z',
+    },
   ]
 
   private orders: Order[] = []
@@ -246,45 +238,45 @@ class MockDatabase {
       name: 'Банковская карта',
       icon: '💳',
       description: 'Visa, MasterCard, МИР',
-      isActive: true
+      isActive: true,
     },
     {
       id: 'yookassa',
       name: 'YooKassa',
       icon: '💰',
       description: 'Быстрая оплата через YooKassa',
-      isActive: true
+      isActive: true,
     },
     {
       id: 'sberpay',
       name: 'SberPay',
       icon: '🟢',
       description: 'Оплата через Сбербанк',
-      isActive: true
+      isActive: true,
     },
     {
       id: 'paypal',
       name: 'PayPal',
       icon: '🌐',
       description: 'Международная платежная система',
-      isActive: true
-    }
+      isActive: true,
+    },
   ]
 
   // Методы для работы с пользователями
   findUserByEmail(email: string): User | undefined {
-    return this.users.find(user => user.email === email)
+    return this.users.find((user) => user.email === email)
   }
 
   findUserById(id: number): User | undefined {
-    return this.users.find(user => user.id === id)
+    return this.users.find((user) => user.id === id)
   }
 
   createUser(userData: Omit<User, 'id' | 'createdAt'>): User {
     const newUser: User = {
       ...userData,
-      id: Math.max(...this.users.map(u => u.id)) + 1,
-      createdAt: new Date().toISOString()
+      id: Math.max(...this.users.map((u) => u.id)) + 1,
+      createdAt: new Date().toISOString(),
     }
     this.users.push(newUser)
     return newUser
@@ -292,56 +284,62 @@ class MockDatabase {
 
   // Методы для работы с категориями
   getCategories(): Category[] {
-    return this.categories.filter(cat => cat.isActive)
+    return this.categories.filter((cat) => cat.isActive)
   }
 
   getCategoryById(id: number): Category | undefined {
-    return this.categories.find(cat => cat.id === id && cat.isActive)
+    return this.categories.find((cat) => cat.id === id && cat.isActive)
   }
 
   getCategoryBySlug(slug: string): Category | undefined {
-    return this.categories.find(cat => cat.slug === slug && cat.isActive)
+    return this.categories.find((cat) => cat.slug === slug && cat.isActive)
   }
 
   createCategory(categoryData: Omit<Category, 'id' | 'createdAt'>): Category {
     const newCategory: Category = {
       ...categoryData,
-      id: Math.max(...this.categories.map(c => c.id)) + 1,
-      createdAt: new Date().toISOString()
+      id: Math.max(...this.categories.map((c) => c.id)) + 1,
+      createdAt: new Date().toISOString(),
     }
     this.categories.push(newCategory)
     return newCategory
   }
 
   updateCategory(id: number, updates: Partial<Category>): Category | null {
-    const categoryIndex = this.categories.findIndex(cat => cat.id === id)
+    const categoryIndex = this.categories.findIndex((cat) => cat.id === id)
     if (categoryIndex === -1) return null
-    
+
     this.categories[categoryIndex] = { ...this.categories[categoryIndex], ...updates }
     return this.categories[categoryIndex]
   }
 
   deleteCategory(id: number): boolean {
-    const categoryIndex = this.categories.findIndex(cat => cat.id === id)
+    const categoryIndex = this.categories.findIndex((cat) => cat.id === id)
     if (categoryIndex === -1) return false
-    
+
     this.categories[categoryIndex].isActive = false
     return true
   }
 
   // Методы для работы с товарами
-  getProducts(filters?: { categoryId?: number; search?: string; limit?: number; offset?: number }): Product[] {
-    let products = this.products.filter(product => product.isActive)
+  getProducts(filters?: {
+    categoryId?: number
+    search?: string
+    limit?: number
+    offset?: number
+  }): Product[] {
+    let products = this.products.filter((product) => product.isActive)
 
     if (filters?.categoryId) {
-      products = products.filter(product => product.categoryId === filters.categoryId)
+      products = products.filter((product) => product.categoryId === filters.categoryId)
     }
 
     if (filters?.search) {
       const search = filters.search.toLowerCase()
-      products = products.filter(product => 
-        product.name.toLowerCase().includes(search) ||
-        product.description.toLowerCase().includes(search)
+      products = products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(search) ||
+          product.description.toLowerCase().includes(search),
       )
     }
 
@@ -357,35 +355,35 @@ class MockDatabase {
   }
 
   getProductById(id: number): Product | undefined {
-    return this.products.find(product => product.id === id && product.isActive)
+    return this.products.find((product) => product.id === id && product.isActive)
   }
 
   getProductBySlug(slug: string): Product | undefined {
-    return this.products.find(product => product.slug === slug && product.isActive)
+    return this.products.find((product) => product.slug === slug && product.isActive)
   }
 
   createProduct(productData: Omit<Product, 'id' | 'createdAt'>): Product {
     const newProduct: Product = {
       ...productData,
-      id: Math.max(...this.products.map(p => p.id)) + 1,
-      createdAt: new Date().toISOString()
+      id: Math.max(...this.products.map((p) => p.id)) + 1,
+      createdAt: new Date().toISOString(),
     }
     this.products.push(newProduct)
     return newProduct
   }
 
   updateProduct(id: number, updates: Partial<Product>): Product | null {
-    const productIndex = this.products.findIndex(product => product.id === id)
+    const productIndex = this.products.findIndex((product) => product.id === id)
     if (productIndex === -1) return null
-    
+
     this.products[productIndex] = { ...this.products[productIndex], ...updates }
     return this.products[productIndex]
   }
 
   deleteProduct(id: number): boolean {
-    const productIndex = this.products.findIndex(product => product.id === id)
+    const productIndex = this.products.findIndex((product) => product.id === id)
     if (productIndex === -1) return false
-    
+
     this.products[productIndex].isActive = false
     return true
   }
@@ -395,23 +393,23 @@ class MockDatabase {
     const newOrder: Order = {
       ...orderData,
       id: this.currentOrderId++,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     }
     this.orders.push(newOrder)
     return newOrder
   }
 
   getOrdersByUserId(userId: number): Order[] {
-    return this.orders.filter(order => order.userId === userId)
+    return this.orders.filter((order) => order.userId === userId)
   }
 
   getOrderById(id: number): Order | undefined {
-    return this.orders.find(order => order.id === id)
+    return this.orders.find((order) => order.id === id)
   }
 
   // Методы для работы с платежными системами
   getPaymentMethods(): PaymentMethod[] {
-    return this.paymentMethods.filter(method => method.isActive)
+    return this.paymentMethods.filter((method) => method.isActive)
   }
 }
 
@@ -419,7 +417,7 @@ class MockDatabase {
 const mockDB = new MockDatabase()
 
 // Утилита для имитации задержки сети
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 // Утилита для генерации JWT токена (mock)
 const generateMockJWT = (user: Omit<User, 'password'>): string => {
@@ -428,7 +426,7 @@ const generateMockJWT = (user: Omit<User, 'password'>): string => {
     id: user.id,
     email: user.email,
     role: user.role,
-    exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24) // 24 часа
+    exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24, // 24 часа
   }
   return btoa(JSON.stringify(payload)) // Base64 кодирование для демо
 }
@@ -452,7 +450,7 @@ export class MockAPI {
 
     return {
       token,
-      user: userWithoutPassword
+      user: userWithoutPassword,
     }
   }
 
@@ -467,7 +465,7 @@ export class MockAPI {
       email,
       password,
       name,
-      role: 'user'
+      role: 'user',
     })
 
     const { password: _, ...userWithoutPassword } = user
@@ -476,7 +474,7 @@ export class MockAPI {
 
     return {
       token,
-      user: userWithoutPassword
+      user: userWithoutPassword,
     }
   }
 
@@ -491,7 +489,7 @@ export class MockAPI {
     try {
       // Декодирование mock JWT
       const payload = JSON.parse(atob(this.token))
-      
+
       // Проверка срока действия токена
       if (payload.exp && payload.exp < Math.floor(Date.now() / 1000)) {
         this.token = null
@@ -527,7 +525,7 @@ export class MockAPI {
 
   static async createCategory(categoryData: Omit<Category, 'id' | 'createdAt'>): Promise<Category> {
     await delay(400)
-    
+
     // Проверка авторизации администратора
     const currentUser = await this.getCurrentUser()
     if (!currentUser || currentUser.role !== 'admin') {
@@ -539,7 +537,7 @@ export class MockAPI {
 
   static async updateCategory(id: number, updates: Partial<Category>): Promise<Category> {
     await delay(400)
-    
+
     const currentUser = await this.getCurrentUser()
     if (!currentUser || currentUser.role !== 'admin') {
       throw new Error('Доступ запрещен')
@@ -555,7 +553,7 @@ export class MockAPI {
 
   static async deleteCategory(id: number): Promise<void> {
     await delay(400)
-    
+
     const currentUser = await this.getCurrentUser()
     if (!currentUser || currentUser.role !== 'admin') {
       throw new Error('Доступ запрещен')
@@ -568,7 +566,12 @@ export class MockAPI {
   }
 
   // Методы для работы с товарами
-  static async getProducts(filters?: { categoryId?: number; search?: string; limit?: number; offset?: number }): Promise<Product[]> {
+  static async getProducts(filters?: {
+    categoryId?: number
+    search?: string
+    limit?: number
+    offset?: number
+  }): Promise<Product[]> {
     await delay(400)
     return mockDB.getProducts(filters)
   }
@@ -585,7 +588,7 @@ export class MockAPI {
 
   static async createProduct(productData: Omit<Product, 'id' | 'createdAt'>): Promise<Product> {
     await delay(500)
-    
+
     const currentUser = await this.getCurrentUser()
     if (!currentUser || currentUser.role !== 'admin') {
       throw new Error('Доступ запрещен')
@@ -596,7 +599,7 @@ export class MockAPI {
 
   static async updateProduct(id: number, updates: Partial<Product>): Promise<Product> {
     await delay(500)
-    
+
     const currentUser = await this.getCurrentUser()
     if (!currentUser || currentUser.role !== 'admin') {
       throw new Error('Доступ запрещен')
@@ -612,7 +615,7 @@ export class MockAPI {
 
   static async deleteProduct(id: number): Promise<void> {
     await delay(400)
-    
+
     const currentUser = await this.getCurrentUser()
     if (!currentUser || currentUser.role !== 'admin') {
       throw new Error('Доступ запрещен')
@@ -627,7 +630,7 @@ export class MockAPI {
   // Методы для работы с заказами
   static async createOrder(orderData: Omit<Order, 'id' | 'createdAt' | 'userId'>): Promise<Order> {
     await delay(600)
-    
+
     const currentUser = await this.getCurrentUser()
     if (!currentUser) {
       throw new Error('Необходима авторизация')
@@ -635,13 +638,13 @@ export class MockAPI {
 
     return mockDB.createOrder({
       ...orderData,
-      userId: currentUser.id
+      userId: currentUser.id,
     })
   }
 
   static async getUserOrders(): Promise<Order[]> {
     await delay(400)
-    
+
     const currentUser = await this.getCurrentUser()
     if (!currentUser) {
       throw new Error('Необходима авторизация')
@@ -652,7 +655,7 @@ export class MockAPI {
 
   static async getOrderById(id: number): Promise<Order | null> {
     await delay(300)
-    
+
     const currentUser = await this.getCurrentUser()
     if (!currentUser) {
       throw new Error('Необходима авторизация')
@@ -672,16 +675,20 @@ export class MockAPI {
     return mockDB.getPaymentMethods()
   }
 
-  static async processPayment(orderId: number, paymentMethodId: string, paymentData?: any): Promise<{ success: boolean; transactionId?: string }> {
+  static async processPayment(
+    orderId: number,
+    paymentMethodId: string,
+    paymentData?: any,
+  ): Promise<{ success: boolean; transactionId?: string }> {
     await delay(1000) // Имитация обработки платежа
-    
+
     // Имитация успешной оплаты в 90% случаев
     const success = Math.random() > 0.1
-    
+
     if (success) {
       return {
         success: true,
-        transactionId: `txn_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+        transactionId: `txn_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       }
     } else {
       throw new Error('Ошибка обработки платежа. Попробуйте еще раз.')

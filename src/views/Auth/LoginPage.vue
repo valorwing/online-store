@@ -1,6 +1,10 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 animate-fade-in">
+  <div
+    class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8"
+  >
+    <div
+      class="max-w-md w-full space-y-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 animate-fade-in"
+    >
       <div>
         <h2 class="text-center text-3xl font-bold text-gradient">
           {{ isLoginMode ? '🔐 Добро пожаловать!' : '✨ Присоединяйтесь к нам!' }}
@@ -34,9 +38,7 @@
         <div class="space-y-4">
           <!-- Имя (только для регистрации) -->
           <div v-if="!isLoginMode">
-            <label for="name" class="block text-sm font-medium text-gray-700">
-              Полное имя
-            </label>
+            <label for="name" class="block text-sm font-medium text-gray-700"> Полное имя </label>
             <input
               id="name"
               v-model="form.name"
@@ -50,9 +52,7 @@
 
           <!-- Email -->
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">
-              Email адрес
-            </label>
+            <label for="email" class="block text-sm font-medium text-gray-700"> Email адрес </label>
             <input
               id="email"
               v-model="form.email"
@@ -66,9 +66,7 @@
 
           <!-- Пароль -->
           <div>
-            <label for="password" class="block text-sm font-medium text-gray-700">
-              Пароль
-            </label>
+            <label for="password" class="block text-sm font-medium text-gray-700"> Пароль </label>
             <input
               id="password"
               v-model="form.password"
@@ -88,12 +86,20 @@
             :disabled="authStore.isLoading"
             class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-card hover:shadow-glow"
           >
-            <span v-if="authStore.isLoading" class="absolute left-0 inset-y-0 flex items-center pl-3">
+            <span
+              v-if="authStore.isLoading"
+              class="absolute left-0 inset-y-0 flex items-center pl-3"
+            >
               <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
             </span>
-            {{ authStore.isLoading 
-                ? (isLoginMode ? 'Вход...' : 'Регистрация...') 
-                : (isLoginMode ? 'Войти' : 'Зарегистрироваться') 
+            {{
+              authStore.isLoading
+                ? isLoginMode
+                  ? 'Вход...'
+                  : 'Регистрация...'
+                : isLoginMode
+                  ? 'Войти'
+                  : 'Зарегистрироваться'
             }}
           </button>
         </div>
@@ -136,13 +142,13 @@ const isLoginMode = ref(true)
 const form = reactive({
   name: '',
   email: '',
-  password: ''
+  password: '',
 })
 
 const toggleMode = () => {
   isLoginMode.value = !isLoginMode.value
   authStore.clearError()
-  
+
   // Очищаем форму при переключении режима
   form.name = ''
   form.email = ''
@@ -160,7 +166,7 @@ const handleSubmit = async () => {
     }
 
     // Перенаправляем пользователя
-    const redirectTo = route.query.redirect as string || (authStore.isAdmin ? '/admin' : '/')
+    const redirectTo = (route.query.redirect as string) || (authStore.isAdmin ? '/admin' : '/')
     router.push(redirectTo)
   } catch (error) {
     // Ошибка уже обработана в store
@@ -171,19 +177,19 @@ const handleSubmit = async () => {
 const loginAsDemo = async (role: 'admin' | 'user') => {
   const credentials = {
     admin: { email: 'admin@example.com', password: 'admin123' },
-    user: { email: 'user@example.com', password: 'user123' }
+    user: { email: 'user@example.com', password: 'user123' },
   }
 
   form.email = credentials[role].email
   form.password = credentials[role].password
-  
+
   await handleSubmit()
 }
 
 onMounted(() => {
   // Если пользователь уже авторизован, перенаправляем его
   if (authStore.isAuthenticated) {
-    const redirectTo = route.query.redirect as string || (authStore.isAdmin ? '/admin' : '/')
+    const redirectTo = (route.query.redirect as string) || (authStore.isAdmin ? '/admin' : '/')
     router.push(redirectTo)
   }
 })

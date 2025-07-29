@@ -4,10 +4,8 @@
     <nav class="bg-white shadow-lg">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-          <router-link to="/" class="text-2xl font-bold text-primary">
-            OnlineStore
-          </router-link>
-          
+          <router-link to="/" class="text-2xl font-bold text-primary"> OnlineStore </router-link>
+
           <div class="flex items-center space-x-4">
             <router-link
               v-if="!authStore.isAuthenticated"
@@ -16,7 +14,7 @@
             >
               Войти
             </router-link>
-            
+
             <span v-else class="text-gray-700">
               {{ authStore.user?.name }}
             </span>
@@ -40,7 +38,11 @@
           <li>
             <div class="flex items-center">
               <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                />
               </svg>
               <span class="ml-1 text-sm font-medium text-gray-500">Корзина</span>
             </div>
@@ -51,15 +53,23 @@
       <!-- Заголовок -->
       <div class="mb-8">
         <h1 class="text-3xl font-bold text-gray-900">Корзина</h1>
-        <p class="text-gray-600 mt-2">
-          {{ cartStore.totalItems }} товар(ов) в корзине
-        </p>
+        <p class="text-gray-600 mt-2">{{ cartStore.totalItems }} товар(ов) в корзине</p>
       </div>
 
       <!-- Пустая корзина -->
       <div v-if="cartStore.isEmpty" class="text-center py-12">
-        <svg class="mx-auto h-24 w-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 0L3 3M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+        <svg
+          class="mx-auto h-24 w-24 text-gray-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 0L3 3M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"
+          />
         </svg>
         <h3 class="mt-4 text-xl font-medium text-gray-900">Корзина пуста</h3>
         <p class="mt-2 text-gray-500">Добавьте товары в корзину, чтобы продолжить покупки.</p>
@@ -98,7 +108,7 @@
                 <p class="text-sm text-gray-600 mt-1">
                   {{ item.product.description.slice(0, 100) }}...
                 </p>
-                
+
                 <!-- Цена -->
                 <div class="flex items-center mt-2 space-x-2">
                   <span class="text-lg font-bold text-gray-900">
@@ -120,18 +130,28 @@
                   class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M20 12H4"
+                    />
                   </svg>
                 </button>
-                
+
                 <span class="w-8 text-center font-semibold">{{ item.quantity }}</span>
-                
+
                 <button
                   @click="increaseQuantity(item.productId)"
                   class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
                   </svg>
                 </button>
               </div>
@@ -156,20 +176,20 @@
         <div class="lg:col-span-1">
           <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
             <h3 class="text-xl font-semibold text-gray-900 mb-4">Итого</h3>
-            
+
             <div class="space-y-3">
               <div class="flex justify-between">
                 <span class="text-gray-600">Товары ({{ cartStore.totalItems }})</span>
                 <span class="font-semibold">{{ formatPrice(cartStore.totalPrice) }}</span>
               </div>
-              
+
               <div class="flex justify-between">
                 <span class="text-gray-600">Доставка</span>
                 <span class="font-semibold text-green-600">Бесплатно</span>
               </div>
-              
+
               <hr class="my-4" />
-              
+
               <div class="flex justify-between text-lg">
                 <span class="font-semibold">Общая сумма</span>
                 <span class="font-bold text-primary">{{ formatPrice(cartStore.totalPrice) }}</span>
@@ -184,14 +204,14 @@
               >
                 Оформить заказ
               </router-link>
-              
+
               <router-link
                 to="/shop"
                 class="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors block text-center"
               >
                 Продолжить покупки
               </router-link>
-              
+
               <button
                 @click="clearCart"
                 class="w-full text-red-600 hover:text-red-800 py-2 transition-colors"
@@ -265,8 +285,8 @@ const loadRecommendedProducts = async () => {
   try {
     const products = await MockAPI.getProducts({ limit: 4 })
     // Исключаем товары, которые уже в корзине
-    const cartProductIds = cartStore.items.map(item => item.productId)
-    recommendedProducts.value = products.filter(product => !cartProductIds.includes(product.id))
+    const cartProductIds = cartStore.items.map((item) => item.productId)
+    recommendedProducts.value = products.filter((product) => !cartProductIds.includes(product.id))
   } catch (error) {
     console.error('Ошибка загрузки рекомендованных товаров:', error)
   }
@@ -312,7 +332,7 @@ const formatPrice = (price: number): string => {
   return new Intl.NumberFormat('ru-RU', {
     style: 'currency',
     currency: 'RUB',
-    minimumFractionDigits: 0
+    minimumFractionDigits: 0,
   }).format(price)
 }
 

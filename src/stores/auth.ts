@@ -39,11 +39,11 @@ export const useAuthStore = defineStore('auth', () => {
 
     try {
       const response = await MockAPI.login(email, password)
-      
+
       user.value = response.user
       localStorage.setItem('auth_token', response.token)
       MockAPI.setAuthToken(response.token)
-      
+
       return response
     } catch (err: any) {
       error.value = err.message || 'Ошибка входа в систему'
@@ -60,11 +60,11 @@ export const useAuthStore = defineStore('auth', () => {
 
     try {
       const response = await MockAPI.register(email, password, name)
-      
+
       user.value = response.user
       localStorage.setItem('auth_token', response.token)
       MockAPI.setAuthToken(response.token)
-      
+
       return response
     } catch (err: any) {
       error.value = err.message || 'Ошибка регистрации'
@@ -117,17 +117,17 @@ export const useAuthStore = defineStore('auth', () => {
     user,
     isLoading,
     error,
-    
+
     // Вы��исляемые свойства
     isAuthenticated,
     isAdmin,
-    
+
     // Методы
     initializeAuth,
     login,
     register,
     logout,
     refreshUser,
-    clearError
+    clearError,
   }
 })

@@ -4,17 +4,20 @@
     <nav class="bg-white shadow-lg sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-          <router-link to="/" class="text-2xl font-bold text-primary">
-            OnlineStore
-          </router-link>
-          
+          <router-link to="/" class="text-2xl font-bold text-primary"> OnlineStore </router-link>
+
           <div class="flex items-center space-x-4">
             <router-link
               to="/cart"
               class="relative p-2 text-gray-600 hover:text-primary transition-colors"
             >
               <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 0L3 3M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 0L3 3M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"
+                />
               </svg>
               <span
                 v-if="cartStore.totalItems > 0"
@@ -31,7 +34,7 @@
             >
               Войти
             </router-link>
-            
+
             <span v-else class="text-gray-700">
               {{ authStore.user?.name }}
             </span>
@@ -55,7 +58,11 @@
           <li>
             <div class="flex items-center">
               <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                />
               </svg>
               <span class="ml-1 text-sm font-medium text-gray-500">Магазин</span>
             </div>
@@ -63,9 +70,15 @@
           <li v-if="selectedCategory">
             <div class="flex items-center">
               <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                />
               </svg>
-              <span class="ml-1 text-sm font-medium text-gray-500">{{ selectedCategory.name }}</span>
+              <span class="ml-1 text-sm font-medium text-gray-500">{{
+                selectedCategory.name
+              }}</span>
             </div>
           </li>
         </ol>
@@ -79,9 +92,7 @@
 
             <!-- Поиск -->
             <div class="mb-6">
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Поиск
-              </label>
+              <label class="block text-sm font-medium text-gray-700 mb-2"> Поиск </label>
               <input
                 v-model="filters.search"
                 @input="applyFilters"
@@ -106,11 +117,7 @@
                   />
                   <span class="ml-2 text-sm text-gray-700">Все категории</span>
                 </label>
-                <label
-                  v-for="category in categories"
-                  :key="category.id"
-                  class="flex items-center"
-                >
+                <label v-for="category in categories" :key="category.id" class="flex items-center">
                   <input
                     v-model="filters.categoryId"
                     :value="category.id"
@@ -126,9 +133,7 @@
 
             <!-- Сортировка -->
             <div class="mb-6">
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Сортировка
-              </label>
+              <label class="block text-sm font-medium text-gray-700 mb-2"> Сортировка </label>
               <select
                 v-model="filters.sortBy"
                 @change="applyFilters"
@@ -160,9 +165,7 @@
               <h1 class="text-3xl font-bold text-gray-900">
                 {{ selectedCategory ? selectedCategory.name : 'Все товары' }}
               </h1>
-              <p class="text-gray-600 mt-1">
-                {{ filteredProducts.length }} товар(ов) найдено
-              </p>
+              <p class="text-gray-600 mt-1">{{ filteredProducts.length }} товар(ов) найдено</p>
             </div>
 
             <!-- Переключатель вида -->
@@ -171,26 +174,32 @@
                 @click="viewMode = 'grid'"
                 :class="[
                   'p-2 rounded-lg',
-                  viewMode === 'grid' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  viewMode === 'grid'
+                    ? 'bg-primary text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
                 ]"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                  <path
+                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                  />
                 </svg>
               </button>
               <button
                 @click="viewMode = 'list'"
                 :class="[
                   'p-2 rounded-lg',
-                  viewMode === 'list' 
-                    ? 'bg-primary text-white' 
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  viewMode === 'list'
+                    ? 'bg-primary text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
                 ]"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
               </button>
             </div>
@@ -224,13 +233,15 @@
                 />
               </div>
               <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                <h3
+                  class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors"
+                >
                   {{ product.name }}
                 </h3>
                 <p class="text-sm text-gray-600 mt-1 line-clamp-2">
                   {{ product.description }}
                 </p>
-                
+
                 <div class="flex items-center mt-2">
                   <div class="flex items-center">
                     <span class="text-yellow-400">★</span>
@@ -244,14 +255,11 @@
                     <span class="text-xl font-bold text-gray-900">
                       {{ formatPrice(product.price) }}
                     </span>
-                    <span
-                      v-if="product.originalPrice"
-                      class="text-sm text-gray-500 line-through"
-                    >
+                    <span v-if="product.originalPrice" class="text-sm text-gray-500 line-through">
                       {{ formatPrice(product.originalPrice) }}
                     </span>
                   </div>
-                  
+
                   <button
                     @click="addToCart(product.id)"
                     :disabled="cartStore.isLoading"
@@ -282,17 +290,21 @@
                 <div class="flex-1 p-6">
                   <div class="flex justify-between">
                     <div class="flex-1">
-                      <h3 class="text-xl font-semibold text-gray-900 hover:text-primary transition-colors">
+                      <h3
+                        class="text-xl font-semibold text-gray-900 hover:text-primary transition-colors"
+                      >
                         {{ product.name }}
                       </h3>
                       <p class="text-gray-600 mt-2">
                         {{ product.description }}
                       </p>
-                      
+
                       <div class="flex items-center mt-3">
                         <span class="text-yellow-400">★</span>
                         <span class="text-sm text-gray-600 ml-1">{{ product.rating }}</span>
-                        <span class="text-sm text-gray-400 ml-1">({{ product.reviewsCount }} отзывов)</span>
+                        <span class="text-sm text-gray-400 ml-1"
+                          >({{ product.reviewsCount }} отзывов)</span
+                        >
                       </div>
 
                       <div class="flex flex-wrap gap-2 mt-3">
@@ -318,7 +330,7 @@
                           {{ formatPrice(product.originalPrice) }}
                         </div>
                       </div>
-                      
+
                       <button
                         @click="addToCart(product.id)"
                         :disabled="cartStore.isLoading"
@@ -334,12 +346,19 @@
           </div>
 
           <!-- Пустое состояние -->
-          <div
-            v-else-if="!isLoading && filteredProducts.length === 0"
-            class="text-center py-12"
-          >
-            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2M4 13h2m13-8V9a4 4 0 00-4-4H9a4 4 0 00-4 4v1.5M7 21h10" />
+          <div v-else-if="!isLoading && filteredProducts.length === 0" class="text-center py-12">
+            <svg
+              class="mx-auto h-12 w-12 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2M4 13h2m13-8V9a4 4 0 00-4-4H9a4 4 0 00-4 4v1.5M7 21h10"
+              />
             </svg>
             <h3 class="mt-2 text-sm font-medium text-gray-900">Товары не найдены</h3>
             <p class="mt-1 text-sm text-gray-500">Попробуйте изменить фильтры поиска.</p>
@@ -371,7 +390,7 @@ const viewMode = ref<'grid' | 'list'>('grid')
 const filters = reactive({
   categoryId: null as number | null,
   search: '',
-  sortBy: 'default'
+  sortBy: 'default',
 })
 
 const filteredProducts = computed(() => {
@@ -379,15 +398,16 @@ const filteredProducts = computed(() => {
 
   // Фильтрация по категории
   if (filters.categoryId) {
-    result = result.filter(product => product.categoryId === filters.categoryId)
+    result = result.filter((product) => product.categoryId === filters.categoryId)
   }
 
   // Фильтрация по поиску
   if (filters.search) {
     const searchLower = filters.search.toLowerCase()
-    result = result.filter(product => 
-      product.name.toLowerCase().includes(searchLower) ||
-      product.description.toLowerCase().includes(searchLower)
+    result = result.filter(
+      (product) =>
+        product.name.toLowerCase().includes(searchLower) ||
+        product.description.toLowerCase().includes(searchLower),
     )
   }
 
@@ -440,18 +460,18 @@ const addToCart = async (productId: number) => {
 const applyFilters = () => {
   // Обновляем URL с параметрами фильтров
   const query: any = {}
-  
+
   if (filters.categoryId) {
-    const category = categories.value.find(c => c.id === filters.categoryId)
+    const category = categories.value.find((c) => c.id === filters.categoryId)
     if (category) {
       query.category = category.slug
     }
   }
-  
+
   if (filters.search) {
     query.search = filters.search
   }
-  
+
   if (filters.sortBy !== 'default') {
     query.sort = filters.sortBy
   }
@@ -471,7 +491,7 @@ const formatPrice = (price: number): string => {
   return new Intl.NumberFormat('ru-RU', {
     style: 'currency',
     currency: 'RUB',
-    minimumFractionDigits: 0
+    minimumFractionDigits: 0,
   }).format(price)
 }
 
@@ -481,7 +501,7 @@ const initializeFromQuery = async () => {
 
   // Категория
   if (query.category) {
-    const category = categories.value.find(c => c.slug === query.category)
+    const category = categories.value.find((c) => c.slug === query.category)
     if (category) {
       filters.categoryId = category.id
       selectedCategory.value = category
@@ -500,9 +520,13 @@ const initializeFromQuery = async () => {
 }
 
 // Наблюдение за изменениями маршрута
-watch(() => route.query, () => {
-  initializeFromQuery()
-}, { deep: true })
+watch(
+  () => route.query,
+  () => {
+    initializeFromQuery()
+  },
+  { deep: true },
+)
 
 onMounted(async () => {
   await loadCategories()

@@ -24,7 +24,15 @@ onMounted(async () => {
 
 /* Глобальные стили */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   line-height: 1.6;
   color: #374151;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -55,12 +63,12 @@ body {
 
 /* Анимации */
 @keyframes fadeIn {
-  from { 
-    opacity: 0; 
+  from {
+    opacity: 0;
     transform: translateY(20px);
   }
-  to { 
-    opacity: 1; 
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -77,48 +85,52 @@ body {
 }
 
 @keyframes bounceGentle {
-  0%, 100% { 
-    transform: translateY(0); 
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  50% { 
-    transform: translateY(-8px); 
+  50% {
+    transform: translateY(-8px);
   }
 }
 
 @keyframes pulseGentle {
-  0%, 100% { 
-    opacity: 1; 
+  0%,
+  100% {
+    opacity: 1;
     transform: scale(1);
   }
-  50% { 
-    opacity: 0.8; 
+  50% {
+    opacity: 0.8;
     transform: scale(1.02);
   }
 }
 
 @keyframes gradient {
-  0% { 
-    background-position: 0% 50%; 
+  0% {
+    background-position: 0% 50%;
   }
-  50% { 
-    background-position: 100% 50%; 
+  50% {
+    background-position: 100% 50%;
   }
-  100% { 
-    background-position: 0% 50%; 
+  100% {
+    background-position: 0% 50%;
   }
 }
 
 @keyframes float {
-  0%, 100% { 
-    transform: translateY(0px); 
+  0%,
+  100% {
+    transform: translateY(0px);
   }
-  50% { 
-    transform: translateY(-15px); 
+  50% {
+    transform: translateY(-15px);
   }
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
   50% {
@@ -214,15 +226,18 @@ body {
 }
 
 /* Улучшенные переходы для кнопок */
-button, .btn {
+button,
+.btn {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
   transform: translateY(-2px);
 }
 
-button:active, .btn:active {
+button:active,
+.btn:active {
   transform: translateY(0);
 }
 
@@ -272,19 +287,19 @@ button:active, .btn:active {
 }
 
 /* Улучшенные формы */
-input[type="text"], 
-input[type="email"], 
-input[type="password"], 
-input[type="tel"], 
-input[type="url"], 
-input[type="number"],
-textarea, 
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='url'],
+input[type='number'],
+textarea,
 select {
   transition: all 0.3s ease;
 }
 
-input:focus, 
-textarea:focus, 
+input:focus,
+textarea:focus,
 select:focus {
   transform: translateY(-1px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -295,7 +310,7 @@ select:focus {
   .animate-float {
     animation-duration: 6s;
   }
-  
+
   .text-gradient {
     background-size: 100% 100%;
   }
@@ -314,7 +329,7 @@ select:focus {
   .no-print {
     display: none !important;
   }
-  
+
   * {
     animation: none !important;
     transition: none !important;
