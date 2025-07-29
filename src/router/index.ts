@@ -15,6 +15,23 @@ const router = createRouter({
       component: () => import('@/views/Shop/ShopPage.vue'),
     },
     {
+      path: '/cart',
+      name: 'Cart',
+      component: () => import('@/views/Shop/CartPage.vue'),
+    },
+    {
+      path: '/checkout',
+      name: 'Checkout',
+      component: () => import('@/views/Shop/CheckoutPage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/orders',
+      name: 'Orders',
+      component: () => import('@/views/Shop/OrdersPage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/login',
       name: 'Login',
       component: () => import('@/views/Auth/LoginPage.vue'),
@@ -28,11 +45,16 @@ const router = createRouter({
   ],
 })
 
-router.beforeEach((to) => {
+router.beforeEach(async (to) => {
   const authStore = useAuthStore()
 
+  // Инициализируем авторизацию если еще не сделали
+  if (!authStore.user && localStorage.getItem('auth_token')) {
+    await authStore.initializeAuth()
+  }
+
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-    return '/login'
+    return { name: 'Login', query: { redirect: to.fullPath } }
   }
 
   if (to.meta.requiresAdmin && !authStore.isAdmin) {
