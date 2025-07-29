@@ -1,0 +1,219 @@
+export default {
+  // Общие
+  currency: 'UAH',
+  
+  // Навигация
+  nav: {
+    home: 'Главная',
+    shop: 'Магазин',
+    cart: 'Корзина',
+    orders: 'Мои заказы',
+    profile: 'Профиль',
+    admin: 'Админ панель',
+    login: 'Войти',
+    logout: 'Выйти',
+  },
+
+  // Главная страница
+  home: {
+    title: 'Интернет-магазин для современных покупок',
+    subtitle: 'Качественные товары, быстрая доставка, выгодные цены',
+    catalogBtn: 'Перейти в каталог',
+    registerBtn: 'Зарегистрироваться',
+    features: {
+      delivery: {
+        title: 'Быстрая доставка',
+        desc: 'Доставка по всей Украине от 1 дня'
+      },
+      quality: {
+        title: 'Высокое качество',
+        desc: 'Только проверенные товары от надежных брендов'
+      },
+      support: {
+        title: 'Поддержка 24/7',
+        desc: 'Всегда готовы помочь и ответить на вопросы'
+      }
+    }
+  },
+
+  // Профиль
+  profile: {
+    title: 'Мой профиль',
+    subtitle: 'Редактирование личных данных',
+    personalInfo: 'Личная информация',
+    changePassword: 'Смена пароля',
+    accountStats: 'Статистика аккаунта',
+    quickActions: 'Быстрые действия',
+    name: 'Имя',
+    email: 'Email',
+    currentPassword: 'Текущий пароль',
+    newPassword: 'Новый пароль',
+    confirmPassword: 'Подтверждение пароля',
+    saveChanges: 'Сохранить изменения',
+    changePasswordBtn: 'Изменить пароль',
+    saving: 'Сохранение...',
+    updating: 'Обновление...',
+    profileUpdated: 'Профиль успешно обновлен!',
+    passwordChanged: 'Пароль успешно изменен!',
+    totalOrders: 'Общее количество заказов',
+    totalSpent: 'Общ��я сумма покупок',
+    registrationDate: 'Дата регистрации',
+    continueShoppingTitle: 'Продолжить покупки',
+    continueShoppingDesc: 'Перейти в каталог товаров',
+    cartTitle: 'Корзина',
+    unknown: 'Неизвестно'
+  },
+
+  // Корзина
+  cart: {
+    title: 'Корзина',
+    empty: 'Корзина пуста',
+    emptyDesc: 'Добавьте товары в корзину, чтобы продолжить покупки.',
+    items: 'товар(ов) в корзине',
+    quantity: 'Количество',
+    remove: 'Удалить',
+    clear: 'Очистить корзину',
+    continueShopping: 'Продолжить покупки',
+    checkout: 'Оформить заказ',
+    subtotal: 'Подытог',
+    total: 'Итого',
+    recommended: 'Рекомендуемые товары'
+  },
+
+  // Оформление заказа
+  checkout: {
+    title: 'Оформление заказа',
+    subtitle: 'Заполните информацию для доставки',
+    contactInfo: 'Контактная информация',
+    shippingAddress: 'Адрес доставки',
+    paymentMethod: 'Способ оплаты',
+    yourOrder: 'Ваш заказ',
+    processing: 'Об��аботка...',
+    payBtn: 'Оплатить',
+    orderSuccess: 'Заказ успешно оформлен!',
+    orderAccepted: 'принят в обработку',
+    emailNotification: 'Мы отправим уведомление о статусе заказа на ваш email',
+    viewOrders: 'Посмотреть заказы',
+    toHome: 'На главную',
+    guarantees: 'Ваши гарантии',
+    securePayment: 'Защищенная оплата',
+    moneyBack: 'Возврат денег в течение 14 дней',
+    qualityGuarantee: 'Гарантия качества товара',
+    support247: 'Поддержка 24/7',
+    address: 'Адрес',
+    city: 'Город',
+    postalCode: 'Почтовый индекс',
+    phone: 'Телефон',
+    delivery: 'Доставка',
+    free: 'Бесплатно',
+    taxes: 'Налоги',
+    included: 'Включены'
+  },
+
+  // Заказы
+  orders: {
+    title: 'Мои заказы',
+    subtitle: 'История ваших покупок',
+    empty: 'У вас пока нет заказов',
+    emptyDesc: 'Начните покупки в нашем магазине!',
+    order: 'Заказ',
+    shippingAddress: 'Адрес доставки',
+    paymentMethod: 'Способ оплаты',
+    cancel: 'Отменить заказ',
+    reorder: 'Заказать снова',
+    review: 'Оставить отзыв',
+    confirmCancel: 'Вы уверены, что хотите отменить этот заказ?',
+    cancelSuccess: 'Заказ отменен',
+    itemsAdded: 'Товары добавлены в корзину',
+    prev: 'Предыдущая',
+    next: 'Следующая',
+    statuses: {
+      pending: 'Ожидает оплаты',
+      paid: 'Оплачен',
+      shipped: 'Отправлен',
+      delivered: 'Доставлен',
+      cancelled: 'Отменен',
+      payment_failed: 'Оплата не прошла'
+    }
+  },
+
+  // Авторизация
+  auth: {
+    welcome: 'Добро пожаловать!',
+    joinUs: 'Присоединяйтесь к нам!',
+    or: 'Или',
+    alreadyHaveAccount: 'Уже есть аккаунт?',
+    register: 'зарегистрируйтесь',
+    loginAction: 'войдите',
+    demoAccounts: 'Демо аккаунты:',
+    admin: 'Админ',
+    user: 'Пользователь',
+    fullName: 'Полное имя',
+    enterName: 'Введите ваше имя',
+    enterEmail: 'Введите ваш email',
+    enterPassword: 'Введите ваш пароль',
+    confirmPasswordField: 'Подтвердите пароль',
+    loginBtn: 'Войти',
+    registerBtn: 'Зарегистрироваться',
+    processing: 'Обработка...'
+  },
+
+  // Админка
+  admin: {
+    title: 'Админ панель',
+    subtitle: 'Управление категориями и товарами',
+    categories: 'Категории',
+    products: 'Товары',
+    addCategory: 'Добавить категорию',
+    addProduct: 'Добавить товар',
+    edit: 'Редактировать',
+    delete: 'Удалить',
+    save: 'Сохранить',
+    cancel: 'Отменить',
+    name: 'Название',
+    description: 'Описание',
+    price: 'Цена',
+    stock: 'Количество на складе',
+    category: 'Категория',
+    active: 'Активен'
+  },
+
+  // Настройки
+  settings: {
+    language: 'Язык',
+    theme: 'Тема',
+    lightTheme: 'Светлая',
+    darkTheme: 'Темная',
+    ukrainian: 'Українська',
+    russian: 'Русский'
+  },
+
+  // Общие кнопки и действия
+  actions: {
+    add: 'Добавить',
+    edit: 'Редактировать',
+    delete: 'Удалить',
+    save: 'Сохранить',
+    cancel: 'Отменить',
+    confirm: 'Подтвердить',
+    close: 'Закрыть',
+    back: 'Назад',
+    next: 'Далее',
+    search: 'Поиск',
+    filter: 'Фильтр',
+    sort: 'Сортировка',
+    loading: 'Загрузка...',
+    error: 'Ошибка',
+    success: 'Успех'
+  },
+
+  // Ошибки
+  errors: {
+    required: 'Это поле обязательно',
+    emailInvalid: 'Неверный формат email',
+    passwordTooShort: 'Пароль должен содержать минимум 6 символов',
+    passwordsMismatch: 'Пароли не совпадают',
+    loginFailed: 'Неверный email или пароль',
+    networkError: 'Ошибка сети. Попробуйте позже.'
+  }
+}
