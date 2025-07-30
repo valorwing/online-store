@@ -1,58 +1,20 @@
 <template>
   <div class="shop-page">
     <!-- Навигация -->
-    <nav class="navbar">
-      <div class="container">
-        <div class="nav-content">
-          <router-link to="/" class="logo"> OnlineStore </router-link>
-
-          <div class="nav-actions">
-            <router-link to="/cart" class="cart-link">
-              🛒
-              <span v-if="cartStore.totalItems > 0" class="cart-badge">
-                {{ cartStore.totalItems }}
-              </span>
-            </router-link>
-
-            <router-link v-if="!authStore.isAuthenticated" to="/login" class="btn btn-primary">
-              Войти
-            </router-link>
-
-            <span v-else class="user-name">
-              {{ authStore.user?.name }}
-            </span>
-          </div>
-        </div>
-      </div>
-    </nav>
-
+    <AppNavbar
+      ref="navbar"
+      :show-search="true"
+      v-model="filters.search"
+      :inital-value="(route.query.search as string) || ''"
+      :keep-focus="(route.query.keepFocus as string) == 'true'"
+      @update:modelValue="applyFilters"
+    />
     <div class="container">
-      <!-- Хлебные крошки -->
-      <nav class="breadcrumb">
-        <router-link to="/" class="breadcrumb-item">Головна</router-link>
-        <span class="breadcrumb-separator">→</span>
-        <span class="breadcrumb-item">Магазин</span>
-        <span v-if="selectedCategory" class="breadcrumb-separator">→</span>
-        <span v-if="selectedCategory" class="breadcrumb-item">{{ selectedCategory.name }}</span>
-      </nav>
-
       <div class="shop-content">
         <!-- Боковая панель с фильтрами -->
         <aside class="filters-sidebar">
           <div class="card">
             <h3 class="filters-title">Фильтры</h3>
-
-            <!-- Поиск -->
-            <div class="filter-group">
-              <label class="form-label">Поиск</label>
-              <input
-                v-model="filters.search"
-                @input="applyFilters"
-                type="text"
-                placeholder="Поиск товаров..."
-                class="form-input"
-              />
-            </div>
 
             <!-- Категории -->
             <div class="filter-group">
@@ -222,13 +184,13 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
+import AppNavbar from '@/components/AppNavbar.vue'
 import { useCartStore } from '@/stores/cart'
 import MockAPI, { type Category, type Product } from '@/services/api'
 
 const route = useRoute()
 const router = useRouter()
-const authStore = useAuthStore()
+
 const cartStore = useCartStore()
 
 const categories = ref<Category[]>([])
@@ -236,7 +198,7 @@ const products = ref<Product[]>([])
 const selectedCategory = ref<Category | null>(null)
 const isLoading = ref(true)
 const viewMode = ref<'grid' | 'list'>('grid')
-
+const navbar = ref<InstanceType<typeof AppNavbar> | null>(null)
 const filters = reactive({
   categoryId: null as number | null,
   search: '',
@@ -305,6 +267,7 @@ const addToCart = async (productId: number) => {
 }
 
 const applyFilters = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const query: any = {}
 
   if (filters.categoryId) {
@@ -322,15 +285,16 @@ const applyFilters = () => {
     query.sort = filters.sortBy
   }
 
-  router.push({ query })
+  router.replace({ query })
 }
 
 const clearFilters = () => {
   filters.categoryId = null
   filters.search = ''
+  navbar.value?.cleanUp()
   filters.sortBy = 'default'
   selectedCategory.value = null
-  router.push({ query: {} })
+  router.replace({ query: {} })
 }
 
 const formatPrice = (price: number): string => {
@@ -358,6 +322,13 @@ const initializeFromQuery = async () => {
 
   if (query.sort) {
     filters.sortBy = query.sort as string
+  }
+  if ((query.keepFocus as string) === 'true') {
+    const newQuery = { ...route.query }
+    delete newQuery['keepFocus']
+    router.replace({
+      query: newQuery,
+    })
   }
 }
 

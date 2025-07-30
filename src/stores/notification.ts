@@ -23,7 +23,7 @@ export const useNotificationStore = defineStore('notification', () => {
     notifications.value.push(newNotification)
 
     // Автоматически удаляем уведомление через указанное время
-    if (newNotification.duration > 0) {
+    if (newNotification.duration !== undefined && newNotification.duration > 0) {
       setTimeout(() => {
         removeNotification(id)
       }, newNotification.duration)

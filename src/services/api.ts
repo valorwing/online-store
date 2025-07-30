@@ -218,7 +218,9 @@ class MockDatabase {
       slug: 'delonghi-coffee-machine',
       description: 'Автоматическая кофемашина с капучинатором',
       price: 18000,
-      images: ['https://images.unsplash.com/photo-1545665277-5937750217c5?w=600'],
+      images: [
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8O3Ffs6CaZX-4yRxlsKtsMu7x5ML6xmhTgzgYPskSDt8LqyT4U_uBpFTzfHMoIsRteEM&usqp=CAU',
+      ],
       categoryId: 5,
       stock: 20,
       isActive: true,
@@ -796,10 +798,13 @@ export class MockAPI {
   static async processPayment(
     orderId: number,
     paymentMethodId: string,
-    paymentData?: any,
+    paymentData?: string,
   ): Promise<{ success: boolean; transactionId?: string }> {
     await delay(1000) // Имитация обработки платежа
-
+    console.log(
+      `Processing payment for order ${orderId} with method ${paymentMethodId}`,
+      paymentData,
+    )
     // Имитация успешной оплаты в 90% случаев
     const success = Math.random() > 0.1
 

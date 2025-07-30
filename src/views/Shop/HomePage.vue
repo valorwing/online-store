@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <!-- Навигация -->
-    <AppNavbar :show-search="true" @search="handleSearch" />
+    <AppNavbar :show-search="true" v-model="searchQuery" @update:modelValue="handleSearch" />
 
     <!-- Главный контент -->
     <main>
@@ -173,7 +173,6 @@ import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useCartStore } from '@/stores/cart'
 import { useNotificationStore } from '@/stores/notification'
-import { useSettingsStore } from '@/stores/settings'
 import { useI18n } from '@/composables/useI18n'
 import AppNavbar from '@/components/AppNavbar.vue'
 import MockAPI, { type Category, type Product } from '@/services/api'
@@ -182,7 +181,6 @@ const router = useRouter()
 const authStore = useAuthStore()
 const cartStore = useCartStore()
 const notificationStore = useNotificationStore()
-const settingsStore = useSettingsStore()
 const { t } = useI18n()
 
 const categories = ref<Category[]>([])
@@ -190,6 +188,7 @@ const featuredProducts = ref<Product[]>([])
 const isLoadingCategories = ref(true)
 const isLoadingProducts = ref(true)
 
+const searchQuery = ref('')
 const loadCategories = async () => {
   try {
     isLoadingCategories.value = true
@@ -234,16 +233,10 @@ const goToCategory = (category: Category) => {
 }
 
 const handleSearch = () => {
-  if (searchQuery.value.trim()) {
-    router.push(`/shop?search=${encodeURIComponent(searchQuery.value)}`)
+  const value = searchQuery.value.trim()
+  if (value) {
+    router.push(`/shop?search=${encodeURIComponent(value)}&keepFocus=true`)
   }
-}
-
-const handleLogout = async () => {
-  await authStore.logout()
-  showUserMenu.value = false
-  notificationStore.info('До свидания!', 'Вы успешно вышли из системы')
-  router.push('/')
 }
 
 const formatPrice = (price: number): string => {

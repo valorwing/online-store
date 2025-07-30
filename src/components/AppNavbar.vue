@@ -5,13 +5,13 @@
         <!-- Логотип -->
         <router-link to="/" class="logo"> OnlineStore </router-link>
 
-        <!-- Поиск (только на главной странице) -->
+        <!-- Поиск -->
         <div v-if="showSearch" class="search-box">
           <span class="search-icon">🔍</span>
           <input
             v-model="searchQuery"
-            @input="$emit('search', searchQuery)"
             type="text"
+            ref="searchInput"
             :placeholder="t('actions.search') + '...'"
             class="search-input"
           />
@@ -25,7 +25,7 @@
             class="nav-btn language-btn"
             :title="t('settings.language')"
           >
-            {{ settingsStore.language === 'uk' ? 'УК' : 'РУ' }}
+            {{ settingsStore.currentLangUI() }}
           </button>
 
           <!-- Переключатель темы -->
@@ -46,34 +46,50 @@
           </router-link>
 
           <!-- Навигация для залогиненных пользователей -->
-          <template v-if="authStore.isAuthenticated">
-            <!-- Профиль -->
-            <router-link to="/profile" class="nav-btn" :title="t('nav.profile')"> 👤 </router-link>
 
-            <!-- Заказы -->
-            <router-link to="/orders" class="nav-btn" :title="t('nav.orders')"> 📦 </router-link>
+          <!-- Профиль -->
+          <router-link
+            v-if="authStore.isAuthenticated"
+            to="/profile"
+            class="nav-btn"
+            :title="t('nav.profile')"
+          >
+            👤
+          </router-link>
 
-            <!-- Админ панель -->
-            <router-link
-              v-if="authStore.isAdmin"
-              to="/admin"
-              class="nav-btn"
-              :title="t('nav.admin')"
-            >
-              ⚙️
-            </router-link>
+          <!-- Заказы -->
+          <router-link
+            v-if="authStore.isAuthenticated"
+            to="/orders"
+            class="nav-btn"
+            :title="t('nav.orders')"
+          >
+            📦
+          </router-link>
 
-            <!-- Имя пользователя -->
-            <span class="user-name">{{ authStore.user?.name }}</span>
+          <!-- Админ панель -->
+          <router-link
+            v-if="authStore.isAuthenticated && authStore.isAdmin"
+            to="/admin"
+            class="nav-btn"
+            :title="t('nav.admin')"
+          >
+            ⚙️
+          </router-link>
 
-            <!-- Кнопка выхода -->
-            <button @click="handleLogout" class="nav-btn logout-btn" :title="t('nav.logout')">
-              🚪
-            </button>
-          </template>
+          <!-- Имя пользователя -->
+          <span v-if="authStore.isAuthenticated" class="user-name">{{ authStore.user?.name }}</span>
 
+          <!-- Кнопка выхода -->
+          <button
+            v-if="authStore.isAuthenticated"
+            @click="handleLogout"
+            class="btn btn-primary logout-btn"
+          >
+            {{ t('nav.logout') }}
+          </button>
           <!-- Кнопка входа для неавторизованных -->
-          <router-link v-else to="/login" class="btn btn-primary">
+          <router-link v-else to="/login" class="btn btn-primary" :title="t('nav.login')">
             {{ t('nav.login') }}
           </router-link>
         </div>
@@ -83,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useCartStore } from '@/stores/cart'
@@ -92,26 +108,45 @@ import { useI18n } from '@/composables/useI18n'
 
 interface Props {
   showSearch?: boolean
+  modelValue: string
+  initalValue?: string
+  keepFocus?: boolean
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
-defineEmits<{
-  search: [value: string]
-}>()
+const emit = defineEmits<{ 'update:modelValue': [value: string] }>()
 
 const router = useRouter()
 const authStore = useAuthStore()
 const cartStore = useCartStore()
 const settingsStore = useSettingsStore()
 const { t } = useI18n()
+const searchInput = ref<HTMLInputElement | null>(null)
+const searchQuery = ref(props.initalValue || '')
 
-const searchQuery = ref('')
+watch(searchQuery, (val) => emit('update:modelValue', val))
 
 const handleLogout = async () => {
   await authStore.logout()
   router.push('/')
 }
+
+const cleanUp = () => {
+  searchQuery.value = ''
+}
+
+defineExpose({
+  cleanUp,
+})
+
+onMounted(() => {
+  if (props.initalValue && props.keepFocus) {
+    if (searchInput.value) {
+      searchInput!.value.focus()
+    }
+  }
+})
 </script>
 
 <style scoped>
@@ -250,15 +285,10 @@ const handleLogout = async () => {
 }
 
 .logout-btn {
-  background: white;
-  border-color: var(--color-error);
-  color: white;
+  background: var(--color-error);
 }
 
 .logout-btn:hover {
-  background: white;
-  border-color: #b91c1c;
-  color: white;
   transform: translateY(-1px);
 }
 

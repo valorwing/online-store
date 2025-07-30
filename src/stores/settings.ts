@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
-export type Language = 'uk' | 'ru'
+export type Language = 'uk' | 'ru' | 'en'
 export type Theme = 'light' | 'dark'
 
 export const useSettingsStore = defineStore('settings', () => {
@@ -54,9 +54,34 @@ export const useSettingsStore = defineStore('settings', () => {
     setTheme(theme.value === 'light' ? 'dark' : 'light')
   }
 
+  const currentLangUI = (): string => {
+    switch (language.value) {
+      case 'en':
+        return 'EN'
+      case 'ru':
+        return 'РУ'
+      case 'uk':
+        return 'УК'
+      default:
+        return 'EN'
+    }
+  }
+
   // Переключение языка
   const toggleLanguage = () => {
-    setLanguage(language.value === 'uk' ? 'ru' : 'uk')
+    switch (language.value) {
+      case 'en':
+        setLanguage('uk')
+        break
+      case 'uk':
+        setLanguage('ru')
+        break
+      case 'ru':
+        setLanguage('en')
+        break
+      default:
+        setLanguage('en')
+    }
   }
 
   return {
@@ -67,5 +92,6 @@ export const useSettingsStore = defineStore('settings', () => {
     setTheme,
     toggleTheme,
     toggleLanguage,
+    currentLangUI,
   }
 })

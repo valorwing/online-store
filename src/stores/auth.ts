@@ -45,8 +45,13 @@ export const useAuthStore = defineStore('auth', () => {
       MockAPI.setAuthToken(response.token)
 
       return response
-    } catch (err: any) {
-      error.value = err.message || 'Ошибка входа в систему'
+    } catch (err) {
+      if (err instanceof Error) {
+        error.value = err.message || 'Auth error. Empty error message'
+      } else {
+        error.value = 'Auth error. Unknown error type'
+      }
+
       throw err
     } finally {
       isLoading.value = false
@@ -66,8 +71,12 @@ export const useAuthStore = defineStore('auth', () => {
       MockAPI.setAuthToken(response.token)
 
       return response
-    } catch (err: any) {
-      error.value = err.message || 'Ошибка регистрации'
+    } catch (err) {
+      if (err instanceof Error) {
+        error.value = err.message || 'Sign up error. Empty error message'
+      } else {
+        error.value = 'Sign up error. Unknown error type'
+      }
       throw err
     } finally {
       isLoading.value = false
@@ -81,7 +90,7 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       await MockAPI.logout()
     } catch (err) {
-      console.error('Ошибка при выходе:', err)
+      console.error('Logout error: ', err)
     } finally {
       user.value = null
       localStorage.removeItem('auth_token')
@@ -102,7 +111,7 @@ export const useAuthStore = defineStore('auth', () => {
         await logout()
       }
     } catch (err) {
-      console.error('Ошибка при обновлении пользователя:', err)
+      console.error('Update user error:', err)
       await logout()
     }
   }
